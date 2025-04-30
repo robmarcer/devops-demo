@@ -1,9 +1,9 @@
 {
-    "id": "lw3wy5mdvP",
-    "name": "Auto Snapshot - 2025-04-29 09:06:23",
-    "description": "Device Auto Snapshot taken following a Full deployment",
-    "createdAt": "2025-04-29T09:06:23.894Z",
-    "updatedAt": "2025-04-29T09:06:23.894Z",
+    "id": "alZP4pKkZV",
+    "name": "6.6",
+    "description": "",
+    "createdAt": "2025-04-30T11:42:24.387Z",
+    "updatedAt": "2025-04-30T11:42:24.387Z",
     "flows": {
         "flows": [
             {
@@ -199,13 +199,42 @@
                 "wires": []
             },
             {
-                "id": "37162c1663a40432",
+                "id": "f7148c37d30db5ba",
+                "type": "moment",
+                "z": "FFF0000000000001",
+                "name": "",
+                "topic": "",
+                "input": "payload",
+                "inputType": "msg",
+                "inTz": "Africa/Abidjan",
+                "adjAmount": 0,
+                "adjType": "days",
+                "adjDir": "add",
+                "format": "",
+                "locale": "en-US",
+                "output": "payload",
+                "outputType": "msg",
+                "outTz": "Africa/Abidjan",
+                "x": 280,
+                "y": 280,
+                "wires": [
+                    [
+                        "999e2f61b088dfcf"
+                    ]
+                ]
+            },
+            {
+                "id": "8764986816807962",
                 "type": "inject",
                 "z": "FFF0000000000001",
                 "name": "",
                 "props": [
                     {
                         "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
                     }
                 ],
                 "repeat": "",
@@ -213,18 +242,18 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello World",
-                "payloadType": "str",
-                "x": 230,
-                "y": 300,
+                "payload": "",
+                "payloadType": "date",
+                "x": 100,
+                "y": 280,
                 "wires": [
                     [
-                        "70a8f65d54878ff9"
+                        "f7148c37d30db5ba"
                     ]
                 ]
             },
             {
-                "id": "70a8f65d54878ff9",
+                "id": "999e2f61b088dfcf",
                 "type": "debug",
                 "z": "FFF0000000000001",
                 "name": "debug 2",
@@ -235,45 +264,13 @@
                 "complete": "false",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 400,
-                "y": 300,
-                "wires": []
-            },
-            {
-                "id": "abe8d92697ca4f91",
-                "type": "catch",
-                "z": "FFF0000000000001",
-                "name": "",
-                "scope": null,
-                "uncaught": false,
-                "x": 160,
-                "y": 460,
-                "wires": [
-                    [
-                        "01ca8fb22a2be7f3"
-                    ]
-                ]
-            },
-            {
-                "id": "01ca8fb22a2be7f3",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 3",
-                "active": true,
-                "tosidebar": true,
-                "console": true,
-                "tostatus": false,
-                "complete": "payload",
-                "targetType": "msg",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 330,
-                "y": 460,
+                "x": 480,
+                "y": 280,
                 "wires": []
             }
         ],
         "credentials": {
-            "$": "c9223c09bdf010f8c272adc46c769fe3Jx8="
+            "$": "214fdcdc1e578b6088d8b3f86612ce7e6sM="
         }
     },
     "settings": {
@@ -283,8 +280,18 @@
             "@flowfuse/nr-assistant": ">=0.1.0",
             "@flowfuse/nr-project-nodes": "~0.7.3",
             "node-red": "3.1.7",
+            "node-red-contrib-moment": "~5.0.0",
             "node-red-dashboard": "~3.6.5"
         }
     },
-    "ownerType": "device"
+    "ownerType": "device",
+    "user": {
+        "id": "6nkvARPgRx",
+        "username": "robmarcer-flowforge",
+        "name": "Rob Marcer",
+        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
+        "admin": true,
+        "createdAt": "2022-09-12T08:25:14.762Z",
+        "suspended": false
+    }
 }

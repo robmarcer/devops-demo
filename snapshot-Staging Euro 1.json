@@ -1,0 +1,299 @@
+{
+    "id": "2Q3x4Dxp3q",
+    "name": "5.0",
+    "description": "",
+    "createdAt": "2025-03-03T16:58:54.121Z",
+    "updatedAt": "2025-03-03T16:58:54.121Z",
+    "flows": {
+        "flows": [
+            {
+                "id": "FFF0000000000001",
+                "type": "tab",
+                "label": "FlowFuse Device Flow",
+                "disabled": false,
+                "info": ""
+            },
+            {
+                "id": "43a6d049a846f14e",
+                "type": "ui_tab",
+                "name": "Home",
+                "icon": "dashboard",
+                "disabled": false,
+                "hidden": false
+            },
+            {
+                "id": "7c9809cce7b80e0c",
+                "type": "ui_base",
+                "theme": {
+                    "name": "theme-light",
+                    "lightTheme": {
+                        "default": "#0094CE",
+                        "baseColor": "#0094CE",
+                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                        "edited": false
+                    },
+                    "darkTheme": {
+                        "default": "#097479",
+                        "baseColor": "#097479",
+                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                        "edited": false
+                    },
+                    "customTheme": {
+                        "name": "Untitled Theme 1",
+                        "default": "#4B7930",
+                        "baseColor": "#4B7930",
+                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    },
+                    "themeState": {
+                        "base-color": {
+                            "default": "#0094CE",
+                            "value": "#0094CE",
+                            "edited": false
+                        },
+                        "page-titlebar-backgroundColor": {
+                            "value": "#0094CE",
+                            "edited": false
+                        },
+                        "page-backgroundColor": {
+                            "value": "#fafafa",
+                            "edited": false
+                        },
+                        "page-sidebar-backgroundColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "group-textColor": {
+                            "value": "#1bbfff",
+                            "edited": false
+                        },
+                        "group-borderColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "group-backgroundColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "widget-textColor": {
+                            "value": "#111111",
+                            "edited": false
+                        },
+                        "widget-backgroundColor": {
+                            "value": "#0094ce",
+                            "edited": false
+                        },
+                        "widget-borderColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "base-font": {
+                            "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                        }
+                    },
+                    "angularTheme": {
+                        "primary": "indigo",
+                        "accents": "blue",
+                        "warn": "red",
+                        "background": "grey",
+                        "palette": "light"
+                    }
+                },
+                "site": {
+                    "name": "Node-RED Dashboard",
+                    "hideToolbar": "false",
+                    "allowSwipe": "false",
+                    "lockMenu": "false",
+                    "allowTempTheme": "true",
+                    "dateFormat": "DD/MM/YYYY",
+                    "sizes": {
+                        "sx": 48,
+                        "sy": 48,
+                        "gx": 6,
+                        "gy": 6,
+                        "cx": 6,
+                        "cy": 6,
+                        "px": 0,
+                        "py": 0
+                    }
+                }
+            },
+            {
+                "id": "8bbdf3e91dc11512",
+                "type": "project link in",
+                "z": "FFF0000000000001",
+                "name": "project in 1",
+                "project": "all",
+                "broadcast": true,
+                "topic": "check",
+                "x": 120,
+                "y": 140,
+                "wires": [
+                    [
+                        "aa518d8138d01b03"
+                    ]
+                ]
+            },
+            {
+                "id": "45377e20ce9b7343",
+                "type": "project link out",
+                "z": "FFF0000000000001",
+                "name": "project out 1",
+                "mode": "link",
+                "broadcast": true,
+                "project": "cbdcbf3a-da70-468c-941e-c333ea1a0e43",
+                "topic": "confirm",
+                "x": 450,
+                "y": 140,
+                "wires": []
+            },
+            {
+                "id": "aa518d8138d01b03",
+                "type": "change",
+                "z": "FFF0000000000001",
+                "name": "",
+                "rules": [
+                    {
+                        "t": "set",
+                        "p": "payload.device",
+                        "pt": "msg",
+                        "to": "FF_DEVICE_NAME",
+                        "tot": "env"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.snapshot",
+                        "pt": "msg",
+                        "to": "FF_SNAPSHOT_NAME",
+                        "tot": "env"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 280,
+                "y": 140,
+                "wires": [
+                    [
+                        "45377e20ce9b7343",
+                        "8806f6a6b51c730e"
+                    ]
+                ]
+            },
+            {
+                "id": "8806f6a6b51c730e",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 1",
+                "active": true,
+                "tosidebar": true,
+                "console": true,
+                "tostatus": false,
+                "complete": "payload",
+                "targetType": "msg",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 450,
+                "y": 80,
+                "wires": []
+            },
+            {
+                "id": "d7a01b30bca6818e",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "hello",
+                "payloadType": "str",
+                "x": 150,
+                "y": 300,
+                "wires": [
+                    [
+                        "e5be3db41198ee2c"
+                    ]
+                ]
+            },
+            {
+                "id": "e5be3db41198ee2c",
+                "type": "string",
+                "z": "FFF0000000000001",
+                "name": "",
+                "methods": [
+                    {
+                        "name": "append",
+                        "params": [
+                            {
+                                "type": "str",
+                                "value": " world"
+                            }
+                        ]
+                    }
+                ],
+                "prop": "payload",
+                "propout": "payload",
+                "object": "msg",
+                "objectout": "msg",
+                "x": 330,
+                "y": 300,
+                "wires": [
+                    [
+                        "ccf6e11e99921954"
+                    ]
+                ]
+            },
+            {
+                "id": "ccf6e11e99921954",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 2",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 500,
+                "y": 300,
+                "wires": []
+            }
+        ],
+        "credentials": {
+            "$": "7837d3d4864692866c7f26fa20471ce0b3E="
+        }
+    },
+    "settings": {
+        "settings": {},
+        "env": {},
+        "modules": {
+            "@flowfuse/nr-assistant": ">=0.1.0",
+            "@flowfuse/nr-project-nodes": "~0.7.3",
+            "node-red": "3.1.7",
+            "node-red-contrib-calc": "~1.0.6",
+            "node-red-contrib-md5": "~1.0.4",
+            "node-red-contrib-string": "~1.0.0",
+            "node-red-dashboard": "~3.6.5",
+            "node-red-mongodb": "~0.0.18"
+        }
+    },
+    "ownerType": "device",
+    "user": {
+        "id": "6nkvARPgRx",
+        "username": "robmarcer-flowforge",
+        "name": "Rob Marcer",
+        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
+        "admin": true,
+        "createdAt": "2022-09-12T08:25:14.762Z",
+        "suspended": false
+    }
+}

@@ -1,9 +1,9 @@
 {
-    "id": "2Q3x4Dxp3q",
-    "name": "5.0",
+    "id": "dezq8gLq3W",
+    "name": "7.1",
     "description": "",
-    "createdAt": "2025-03-03T16:58:54.121Z",
-    "updatedAt": "2025-03-03T16:58:54.121Z",
+    "createdAt": "2025-05-13T12:03:15.165Z",
+    "updatedAt": "2025-05-13T12:03:15.165Z",
     "flows": {
         "flows": [
             {
@@ -12,110 +12,6 @@
                 "label": "FlowFuse Device Flow",
                 "disabled": false,
                 "info": ""
-            },
-            {
-                "id": "43a6d049a846f14e",
-                "type": "ui_tab",
-                "name": "Home",
-                "icon": "dashboard",
-                "disabled": false,
-                "hidden": false
-            },
-            {
-                "id": "7c9809cce7b80e0c",
-                "type": "ui_base",
-                "theme": {
-                    "name": "theme-light",
-                    "lightTheme": {
-                        "default": "#0094CE",
-                        "baseColor": "#0094CE",
-                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                        "edited": false
-                    },
-                    "darkTheme": {
-                        "default": "#097479",
-                        "baseColor": "#097479",
-                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                        "edited": false
-                    },
-                    "customTheme": {
-                        "name": "Untitled Theme 1",
-                        "default": "#4B7930",
-                        "baseColor": "#4B7930",
-                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                    },
-                    "themeState": {
-                        "base-color": {
-                            "default": "#0094CE",
-                            "value": "#0094CE",
-                            "edited": false
-                        },
-                        "page-titlebar-backgroundColor": {
-                            "value": "#0094CE",
-                            "edited": false
-                        },
-                        "page-backgroundColor": {
-                            "value": "#fafafa",
-                            "edited": false
-                        },
-                        "page-sidebar-backgroundColor": {
-                            "value": "#ffffff",
-                            "edited": false
-                        },
-                        "group-textColor": {
-                            "value": "#1bbfff",
-                            "edited": false
-                        },
-                        "group-borderColor": {
-                            "value": "#ffffff",
-                            "edited": false
-                        },
-                        "group-backgroundColor": {
-                            "value": "#ffffff",
-                            "edited": false
-                        },
-                        "widget-textColor": {
-                            "value": "#111111",
-                            "edited": false
-                        },
-                        "widget-backgroundColor": {
-                            "value": "#0094ce",
-                            "edited": false
-                        },
-                        "widget-borderColor": {
-                            "value": "#ffffff",
-                            "edited": false
-                        },
-                        "base-font": {
-                            "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                        }
-                    },
-                    "angularTheme": {
-                        "primary": "indigo",
-                        "accents": "blue",
-                        "warn": "red",
-                        "background": "grey",
-                        "palette": "light"
-                    }
-                },
-                "site": {
-                    "name": "Node-RED Dashboard",
-                    "hideToolbar": "false",
-                    "allowSwipe": "false",
-                    "lockMenu": "false",
-                    "allowTempTheme": "true",
-                    "dateFormat": "DD/MM/YYYY",
-                    "sizes": {
-                        "sx": 48,
-                        "sy": 48,
-                        "gx": 6,
-                        "gy": 6,
-                        "cx": 6,
-                        "cy": 6,
-                        "px": 0,
-                        "py": 0
-                    }
-                }
             },
             {
                 "id": "8bbdf3e91dc11512",
@@ -142,7 +38,7 @@
                 "broadcast": true,
                 "project": "cbdcbf3a-da70-468c-941e-c333ea1a0e43",
                 "topic": "confirm",
-                "x": 450,
+                "x": 770,
                 "y": 140,
                 "wires": []
             },
@@ -176,8 +72,7 @@
                 "y": 140,
                 "wires": [
                     [
-                        "45377e20ce9b7343",
-                        "8806f6a6b51c730e"
+                        "7962d8d523d717a1"
                     ]
                 ]
             },
@@ -186,7 +81,7 @@
                 "type": "debug",
                 "z": "FFF0000000000001",
                 "name": "debug 1",
-                "active": true,
+                "active": false,
                 "tosidebar": true,
                 "console": true,
                 "tostatus": false,
@@ -194,82 +89,94 @@
                 "targetType": "msg",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 450,
-                "y": 80,
+                "x": 770,
+                "y": 100,
                 "wires": []
             },
             {
-                "id": "d7a01b30bca6818e",
-                "type": "inject",
+                "id": "7962d8d523d717a1",
+                "type": "function",
                 "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "hello",
-                "payloadType": "str",
-                "x": 150,
-                "y": 300,
+                "name": "function 1",
+                "func": "const deviceString = msg.payload.device\nconst splitStrings = deviceString.split(' ')\nmsg.payload.device = splitStrings\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 440,
+                "y": 140,
                 "wires": [
                     [
-                        "e5be3db41198ee2c"
+                        "e32534568c3d2411"
                     ]
                 ]
             },
             {
-                "id": "e5be3db41198ee2c",
-                "type": "string",
+                "id": "e32534568c3d2411",
+                "type": "change",
                 "z": "FFF0000000000001",
                 "name": "",
-                "methods": [
+                "rules": [
                     {
-                        "name": "append",
-                        "params": [
-                            {
-                                "type": "str",
-                                "value": " world"
-                            }
-                        ]
+                        "t": "move",
+                        "p": "payload.device",
+                        "pt": "msg",
+                        "to": "payload.store",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.env",
+                        "pt": "msg",
+                        "to": "payload.store[0]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.location",
+                        "pt": "msg",
+                        "to": "payload.store[1]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.ipc",
+                        "pt": "msg",
+                        "to": "payload.store[2]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "delete",
+                        "p": "payload.store",
+                        "pt": "msg"
+                    },
+                    {
+                        "t": "move",
+                        "p": "payload.snapshot",
+                        "pt": "msg",
+                        "to": "payload.device.version",
+                        "tot": "msg"
                     }
                 ],
-                "prop": "payload",
-                "propout": "payload",
-                "object": "msg",
-                "objectout": "msg",
-                "x": 330,
-                "y": 300,
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 600,
+                "y": 140,
                 "wires": [
                     [
-                        "ccf6e11e99921954"
+                        "45377e20ce9b7343",
+                        "8806f6a6b51c730e"
                     ]
                 ]
-            },
-            {
-                "id": "ccf6e11e99921954",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 2",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 500,
-                "y": 300,
-                "wires": []
             }
         ],
         "credentials": {
-            "$": "92909b23ab52b1a3884d57c5fe70cf7fYmo="
+            "$": "8c59defd50f3fa47cbbe77e6e34c295dW2Y="
         }
     },
     "settings": {
@@ -279,11 +186,7 @@
             "@flowfuse/nr-assistant": ">=0.1.0",
             "@flowfuse/nr-project-nodes": "~0.7.3",
             "node-red": "3.1.7",
-            "node-red-contrib-calc": "~1.0.6",
-            "node-red-contrib-md5": "~1.0.4",
-            "node-red-contrib-string": "~1.0.0",
-            "node-red-dashboard": "~3.6.5",
-            "node-red-mongodb": "~0.0.18"
+            "node-red-contrib-moment": "~5.0.0"
         }
     },
     "ownerType": "device",

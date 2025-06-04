@@ -1,0 +1,471 @@
+{
+    "id": "wd3RLpKAvr",
+    "name": "8.0",
+    "description": "",
+    "createdAt": "2025-06-04T11:12:10.703Z",
+    "updatedAt": "2025-06-04T11:12:10.703Z",
+    "flows": {
+        "flows": [
+            {
+                "id": "FFF0000000000001",
+                "type": "tab",
+                "label": "FlowFuse Device Flow",
+                "disabled": false,
+                "info": ""
+            },
+            {
+                "id": "5f809c8508e0d1cd",
+                "type": "group",
+                "z": "FFF0000000000001",
+                "name": "Trigger a message every second, .3 chance",
+                "style": {
+                    "label": true
+                },
+                "nodes": [
+                    "b2a4dacd5048e17a",
+                    "05669a76e631dd55",
+                    "0b017e07fcebe174",
+                    "51303d3c38298c76",
+                    "3b9dc19d1c3f0a93"
+                ],
+                "x": 54,
+                "y": 79,
+                "w": 692,
+                "h": 82
+            },
+            {
+                "id": "3c33774a23201088",
+                "type": "group",
+                "z": "FFF0000000000001",
+                "name": "Collect data from the edge device and send to the central Node-RED instance",
+                "style": {
+                    "label": true
+                },
+                "nodes": [
+                    "45377e20ce9b7343",
+                    "aa518d8138d01b03",
+                    "8806f6a6b51c730e",
+                    "7962d8d523d717a1",
+                    "e32534568c3d2411",
+                    "b9d13477ac2df90d",
+                    "b6e0f35920e86dd2",
+                    "f6f1682376566bc9",
+                    "35b29e3d15640880",
+                    "54eb1dc38720bc2a",
+                    "af8ee97de1400c94"
+                ],
+                "x": 54,
+                "y": 199,
+                "w": 1012,
+                "h": 202
+            },
+            {
+                "id": "45377e20ce9b7343",
+                "type": "project link out",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "project out 1",
+                "mode": "link",
+                "broadcast": true,
+                "project": "0bcafdeb-2dbf-46f5-b91f-0e91c529832f",
+                "topic": "confirm",
+                "x": 970,
+                "y": 360,
+                "wires": []
+            },
+            {
+                "id": "aa518d8138d01b03",
+                "type": "change",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "",
+                "rules": [
+                    {
+                        "t": "set",
+                        "p": "payload.device",
+                        "pt": "msg",
+                        "to": "FF_DEVICE_NAME",
+                        "tot": "env"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.snapshot",
+                        "pt": "msg",
+                        "to": "FF_SNAPSHOT_NAME",
+                        "tot": "env"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 220,
+                "y": 240,
+                "wires": [
+                    [
+                        "7962d8d523d717a1"
+                    ]
+                ]
+            },
+            {
+                "id": "8806f6a6b51c730e",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "debug 1",
+                "active": false,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "payload",
+                "targetType": "msg",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 960,
+                "y": 300,
+                "wires": []
+            },
+            {
+                "id": "7962d8d523d717a1",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "function 1",
+                "func": "const deviceString = msg.payload.device\nconst splitStrings = deviceString.split(' ')\nmsg.payload.device = splitStrings\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 380,
+                "y": 240,
+                "wires": [
+                    [
+                        "e32534568c3d2411"
+                    ]
+                ]
+            },
+            {
+                "id": "e32534568c3d2411",
+                "type": "change",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "",
+                "rules": [
+                    {
+                        "t": "move",
+                        "p": "payload.device",
+                        "pt": "msg",
+                        "to": "payload.store",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.env",
+                        "pt": "msg",
+                        "to": "payload.store[0]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.location",
+                        "pt": "msg",
+                        "to": "payload.store[1]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.ipc",
+                        "pt": "msg",
+                        "to": "payload.store[2]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "delete",
+                        "p": "payload.store",
+                        "pt": "msg"
+                    },
+                    {
+                        "t": "move",
+                        "p": "payload.snapshot",
+                        "pt": "msg",
+                        "to": "payload.device.version",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.data.shift-start",
+                        "pt": "msg",
+                        "to": "",
+                        "tot": "num"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 540,
+                "y": 240,
+                "wires": [
+                    [
+                        "f6f1682376566bc9"
+                    ]
+                ]
+            },
+            {
+                "id": "b9d13477ac2df90d",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Natural Temp Generator",
+                "func": "//$PROMPT: Create a fuction node which creates a temperature between 10 and 30 celcius each time it's called. Make the changes between each data point seem natural. Output the value to msg.payload.data.temp, round the temp to one decimal place. retain any information which was stored in msg.payload\nconst minTemp = 10\nconst maxTemp = 30\nconst lastTemp = context.get('lastTemp') || (minTemp + maxTemp) / 2\n\n// Generate a random temperature change between -0.5 and 0.5\nconst tempChange = (Math.random() - 0.5)\n\n// Calculate the new temperature\nlet newTemp = lastTemp + tempChange\n\n// Ensure the new temperature is within bounds\nnewTemp = Math.max(minTemp, Math.min(maxTemp, newTemp))\n\n// Round to one decimal place\nnewTemp = Math.round(newTemp * 10) / 10\n\n// Store the new temperature in context\ncontext.set('lastTemp', newTemp)\n\n// Output the temperature\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.temp = newTemp\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 230,
+                "y": 340,
+                "wires": [
+                    [
+                        "35b29e3d15640880"
+                    ]
+                ]
+            },
+            {
+                "id": "b2a4dacd5048e17a",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "g": "5f809c8508e0d1cd",
+                "name": "",
+                "props": [],
+                "repeat": "1",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "x": 150,
+                "y": 120,
+                "wires": [
+                    [
+                        "05669a76e631dd55"
+                    ]
+                ]
+            },
+            {
+                "id": "05669a76e631dd55",
+                "type": "random",
+                "z": "FFF0000000000001",
+                "g": "5f809c8508e0d1cd",
+                "name": "",
+                "low": 1,
+                "high": "3",
+                "inte": "true",
+                "property": "payload",
+                "x": 280,
+                "y": 120,
+                "wires": [
+                    [
+                        "0b017e07fcebe174"
+                    ]
+                ]
+            },
+            {
+                "id": "0b017e07fcebe174",
+                "type": "switch",
+                "z": "FFF0000000000001",
+                "g": "5f809c8508e0d1cd",
+                "name": "",
+                "property": "payload",
+                "propertyType": "msg",
+                "rules": [
+                    {
+                        "t": "eq",
+                        "v": "3",
+                        "vt": "num"
+                    }
+                ],
+                "checkall": "true",
+                "repair": false,
+                "outputs": 1,
+                "x": 410,
+                "y": 120,
+                "wires": [
+                    [
+                        "51303d3c38298c76"
+                    ]
+                ]
+            },
+            {
+                "id": "51303d3c38298c76",
+                "type": "change",
+                "z": "FFF0000000000001",
+                "g": "5f809c8508e0d1cd",
+                "name": "",
+                "rules": [
+                    {
+                        "t": "delete",
+                        "p": "payload",
+                        "pt": "msg"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 570,
+                "y": 120,
+                "wires": [
+                    [
+                        "3b9dc19d1c3f0a93"
+                    ]
+                ]
+            },
+            {
+                "id": "3b9dc19d1c3f0a93",
+                "type": "link out",
+                "z": "FFF0000000000001",
+                "g": "5f809c8508e0d1cd",
+                "name": "link out 1",
+                "mode": "link",
+                "links": [
+                    "b6e0f35920e86dd2"
+                ],
+                "x": 705,
+                "y": 120,
+                "wires": []
+            },
+            {
+                "id": "b6e0f35920e86dd2",
+                "type": "link in",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "link in 1",
+                "links": [
+                    "3b9dc19d1c3f0a93"
+                ],
+                "x": 95,
+                "y": 240,
+                "wires": [
+                    [
+                        "aa518d8138d01b03"
+                    ]
+                ]
+            },
+            {
+                "id": "f6f1682376566bc9",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Set Shift Start Time",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nmsg.payload.data['shift-start'] = shiftStart\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 730,
+                "y": 240,
+                "wires": [
+                    [
+                        "af8ee97de1400c94"
+                    ]
+                ]
+            },
+            {
+                "id": "35b29e3d15640880",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Gradual Cycle Time Setter",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.cycle-time to be a value between 30 and 45, make the changes in the value gradual\nconst minCycleTime = 30\nconst maxCycleTime = 45\n\nif (!context.get('cycleTime')) {\n    context.set('cycleTime', minCycleTime)\n}\n\nlet currentCycleTime = context.get('cycleTime')\n\n// Determine the direction of change\nlet increasing = context.get('increasing')\nif (increasing === undefined) {\n    increasing = true\n    context.set('increasing', increasing)\n}\n\n// Adjust the cycle time gradually\nif (increasing) {\n    currentCycleTime += 1\n    if (currentCycleTime >= maxCycleTime) {\n        currentCycleTime = maxCycleTime\n        context.set('increasing', false)\n    }\n} else {\n    currentCycleTime -= 1\n    if (currentCycleTime <= minCycleTime) {\n        currentCycleTime = minCycleTime\n        context.set('increasing', true)\n    }\n}\n\n// Save the updated cycle time\ncontext.set('cycleTime', currentCycleTime)\n\n// Set the value in the message payload\nmsg.payload = msg.payload || {}\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['cycle-time'] = currentCycleTime\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 480,
+                "y": 340,
+                "wires": [
+                    [
+                        "54eb1dc38720bc2a"
+                    ]
+                ]
+            },
+            {
+                "id": "54eb1dc38720bc2a",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Timed Position Selector",
+                "func": "//$PROMPT: Create a function which selects from one of the following list and outputs the value as msg.payload.data.recipe. front-right, front-left, rear-left, rear-right, rear. Only change the value every 2 minutes. Allow any other values to be passed through the function\nconst positions = ['front-right', 'front-left', 'rear-left', 'rear-right', 'rear']\nlet lastChangeTime = context.get('lastChangeTime') || 0\nlet currentIndex = context.get('currentIndex') || 0\n\nconst now = Date.now()\n\nif (now - lastChangeTime >= 30000) { // 2 minutes in milliseconds\n    currentIndex = (currentIndex + 1) % positions.length\n    lastChangeTime = now\n    context.set('lastChangeTime', lastChangeTime)\n    context.set('currentIndex', currentIndex)\n}\n\nmsg.payload = msg.payload || {}\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.recipe = positions[currentIndex]\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 730,
+                "y": 340,
+                "wires": [
+                    [
+                        "8806f6a6b51c730e",
+                        "45377e20ce9b7343"
+                    ]
+                ]
+            },
+            {
+                "id": "af8ee97de1400c94",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Set Next Shift End",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-end to be 23:30, 7:30, or 15:30, use whichever is next to happen in local time\nconst now = new Date()\nconst currentHour = now.getHours()\nconst currentMinute = now.getMinutes()\n\nlet nextShiftEnd\n\nif (currentHour < 7 || (currentHour === 7 && currentMinute < 30)) {\n    nextShiftEnd = '07:30'\n} else if (currentHour < 15 || (currentHour === 15 && currentMinute < 30)) {\n    nextShiftEnd = '15:30'\n} else {\n    nextShiftEnd = '23:30'\n}\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['shift-end'] = nextShiftEnd\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 930,
+                "y": 240,
+                "wires": [
+                    [
+                        "b9d13477ac2df90d"
+                    ]
+                ]
+            }
+        ],
+        "credentials": {
+            "$": "2af18df14dace4b5147a7be82f7dd20bj5s="
+        }
+    },
+    "settings": {
+        "settings": {},
+        "env": {},
+        "modules": {
+            "@flowfuse/nr-assistant": ">=0.1.0",
+            "@flowfuse/nr-project-nodes": "~0.7.3",
+            "node-red": "3.1.7",
+            "node-red-contrib-moment": "~5.0.0",
+            "node-red-node-random": "~0.4.1"
+        }
+    },
+    "ownerType": "device",
+    "user": {
+        "id": "6nkvARPgRx",
+        "username": "robmarcer-flowforge",
+        "name": "Rob Marcer",
+        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
+        "admin": true,
+        "createdAt": "2022-09-12T08:25:14.762Z",
+        "suspended": false
+    }
+}

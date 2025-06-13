@@ -1,9 +1,9 @@
 {
-    "id": "0GvDP97VvE",
-    "name": "8.2",
+    "id": "BWZgGRJmZY",
+    "name": "8.1",
     "description": "",
-    "createdAt": "2025-06-13T12:17:45.720Z",
-    "updatedAt": "2025-06-13T12:17:45.720Z",
+    "createdAt": "2025-06-13T11:53:00.826Z",
+    "updatedAt": "2025-06-13T11:53:00.826Z",
     "flows": {
         "flows": [
             {
@@ -441,51 +441,10 @@
                         "b9d13477ac2df90d"
                     ]
                 ]
-            },
-            {
-                "id": "1638b6dc00ed2f89",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "Hello world",
-                "payloadType": "str",
-                "x": 280,
-                "y": 560,
-                "wires": [
-                    [
-                        "618aec18fdd31cca"
-                    ]
-                ]
-            },
-            {
-                "id": "618aec18fdd31cca",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 2",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 460,
-                "y": 540,
-                "wires": []
             }
         ],
         "credentials": {
-            "$": "f91189d49d033bfb02b101a6509406b86vo="
+            "$": "b8abd7abf0ad6e2b7bbc5f2178eac519H28="
         }
     },
     "settings": {

@@ -1,9 +1,9 @@
 {
-    "id": "BWZgGRJmZY",
-    "name": "8.1",
+    "id": "2b3V2yBq3x",
+    "name": "8.3",
     "description": "",
-    "createdAt": "2025-06-13T11:53:00.826Z",
-    "updatedAt": "2025-06-13T11:53:00.826Z",
+    "createdAt": "2025-06-18T12:31:41.978Z",
+    "updatedAt": "2025-06-18T12:31:41.978Z",
     "flows": {
         "flows": [
             {
@@ -441,10 +441,51 @@
                         "b9d13477ac2df90d"
                     ]
                 ]
+            },
+            {
+                "id": "31b3ef6a405a5b4f",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "dburl",
+                "payloadType": "env",
+                "x": 210,
+                "y": 560,
+                "wires": [
+                    [
+                        "3c10b0b9221ca3e6"
+                    ]
+                ]
+            },
+            {
+                "id": "3c10b0b9221ca3e6",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 2",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 380,
+                "y": 540,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "b8abd7abf0ad6e2b7bbc5f2178eac519H28="
+            "$": "f39c0c6e0e125b09a2f3750f800e378ci8A="
         }
     },
     "settings": {

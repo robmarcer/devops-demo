@@ -1,9 +1,9 @@
 {
-    "id": "2b3V2yBq3x",
-    "name": "8.3",
+    "id": "2Q3x4Dxp3q",
+    "name": "5.0",
     "description": "",
-    "createdAt": "2025-06-18T12:31:41.978Z",
-    "updatedAt": "2025-06-18T12:31:41.978Z",
+    "createdAt": "2025-03-03T16:58:54.121Z",
+    "updatedAt": "2025-03-03T16:58:54.121Z",
     "flows": {
         "flows": [
             {
@@ -14,70 +14,142 @@
                 "info": ""
             },
             {
-                "id": "5f809c8508e0d1cd",
-                "type": "group",
-                "z": "FFF0000000000001",
-                "name": "Trigger a message every second, .3 chance",
-                "style": {
-                    "label": true
-                },
-                "nodes": [
-                    "b2a4dacd5048e17a",
-                    "05669a76e631dd55",
-                    "0b017e07fcebe174",
-                    "51303d3c38298c76",
-                    "3b9dc19d1c3f0a93"
-                ],
-                "x": 54,
-                "y": 79,
-                "w": 692,
-                "h": 82
+                "id": "43a6d049a846f14e",
+                "type": "ui_tab",
+                "name": "Home",
+                "icon": "dashboard",
+                "disabled": false,
+                "hidden": false
             },
             {
-                "id": "3c33774a23201088",
-                "type": "group",
-                "z": "FFF0000000000001",
-                "name": "Collect data from the edge device and send to the central Node-RED instance",
-                "style": {
-                    "label": true
+                "id": "7c9809cce7b80e0c",
+                "type": "ui_base",
+                "theme": {
+                    "name": "theme-light",
+                    "lightTheme": {
+                        "default": "#0094CE",
+                        "baseColor": "#0094CE",
+                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                        "edited": false
+                    },
+                    "darkTheme": {
+                        "default": "#097479",
+                        "baseColor": "#097479",
+                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                        "edited": false
+                    },
+                    "customTheme": {
+                        "name": "Untitled Theme 1",
+                        "default": "#4B7930",
+                        "baseColor": "#4B7930",
+                        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                    },
+                    "themeState": {
+                        "base-color": {
+                            "default": "#0094CE",
+                            "value": "#0094CE",
+                            "edited": false
+                        },
+                        "page-titlebar-backgroundColor": {
+                            "value": "#0094CE",
+                            "edited": false
+                        },
+                        "page-backgroundColor": {
+                            "value": "#fafafa",
+                            "edited": false
+                        },
+                        "page-sidebar-backgroundColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "group-textColor": {
+                            "value": "#1bbfff",
+                            "edited": false
+                        },
+                        "group-borderColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "group-backgroundColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "widget-textColor": {
+                            "value": "#111111",
+                            "edited": false
+                        },
+                        "widget-backgroundColor": {
+                            "value": "#0094ce",
+                            "edited": false
+                        },
+                        "widget-borderColor": {
+                            "value": "#ffffff",
+                            "edited": false
+                        },
+                        "base-font": {
+                            "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                        }
+                    },
+                    "angularTheme": {
+                        "primary": "indigo",
+                        "accents": "blue",
+                        "warn": "red",
+                        "background": "grey",
+                        "palette": "light"
+                    }
                 },
-                "nodes": [
-                    "45377e20ce9b7343",
-                    "aa518d8138d01b03",
-                    "8806f6a6b51c730e",
-                    "7962d8d523d717a1",
-                    "e32534568c3d2411",
-                    "b9d13477ac2df90d",
-                    "b6e0f35920e86dd2",
-                    "f6f1682376566bc9",
-                    "35b29e3d15640880",
-                    "54eb1dc38720bc2a",
-                    "af8ee97de1400c94"
-                ],
-                "x": 54,
-                "y": 199,
-                "w": 1012,
-                "h": 202
+                "site": {
+                    "name": "Node-RED Dashboard",
+                    "hideToolbar": "false",
+                    "allowSwipe": "false",
+                    "lockMenu": "false",
+                    "allowTempTheme": "true",
+                    "dateFormat": "DD/MM/YYYY",
+                    "sizes": {
+                        "sx": 48,
+                        "sy": 48,
+                        "gx": 6,
+                        "gy": 6,
+                        "cx": 6,
+                        "cy": 6,
+                        "px": 0,
+                        "py": 0
+                    }
+                }
+            },
+            {
+                "id": "8bbdf3e91dc11512",
+                "type": "project link in",
+                "z": "FFF0000000000001",
+                "name": "project in 1",
+                "project": "all",
+                "broadcast": true,
+                "topic": "check",
+                "x": 120,
+                "y": 140,
+                "wires": [
+                    [
+                        "aa518d8138d01b03"
+                    ]
+                ]
             },
             {
                 "id": "45377e20ce9b7343",
                 "type": "project link out",
                 "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
                 "name": "project out 1",
                 "mode": "link",
                 "broadcast": true,
-                "project": "0bcafdeb-2dbf-46f5-b91f-0e91c529832f",
+                "project": "cbdcbf3a-da70-468c-941e-c333ea1a0e43",
                 "topic": "confirm",
-                "x": 970,
-                "y": 360,
+                "x": 450,
+                "y": 140,
                 "wires": []
             },
             {
                 "id": "aa518d8138d01b03",
                 "type": "change",
                 "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
                 "name": "",
                 "rules": [
                     {
@@ -100,11 +172,12 @@
                 "from": "",
                 "to": "",
                 "reg": false,
-                "x": 220,
-                "y": 240,
+                "x": 280,
+                "y": 140,
                 "wires": [
                     [
-                        "7962d8d523d717a1"
+                        "45377e20ce9b7343",
+                        "8806f6a6b51c730e"
                     ]
                 ]
             },
@@ -112,338 +185,21 @@
                 "id": "8806f6a6b51c730e",
                 "type": "debug",
                 "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
                 "name": "debug 1",
-                "active": false,
+                "active": true,
                 "tosidebar": true,
-                "console": false,
+                "console": true,
                 "tostatus": false,
                 "complete": "payload",
                 "targetType": "msg",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 960,
-                "y": 300,
+                "x": 450,
+                "y": 80,
                 "wires": []
             },
             {
-                "id": "7962d8d523d717a1",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "function 1",
-                "func": "const deviceString = msg.payload.device\nconst splitStrings = deviceString.split(' ')\nmsg.payload.device = splitStrings\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 380,
-                "y": 240,
-                "wires": [
-                    [
-                        "e32534568c3d2411"
-                    ]
-                ]
-            },
-            {
-                "id": "e32534568c3d2411",
-                "type": "change",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "",
-                "rules": [
-                    {
-                        "t": "move",
-                        "p": "payload.device",
-                        "pt": "msg",
-                        "to": "payload.store",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.device.env",
-                        "pt": "msg",
-                        "to": "payload.store[0]",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.device.location",
-                        "pt": "msg",
-                        "to": "payload.store[1]",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.device.ipc",
-                        "pt": "msg",
-                        "to": "payload.store[2]",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "delete",
-                        "p": "payload.store",
-                        "pt": "msg"
-                    },
-                    {
-                        "t": "move",
-                        "p": "payload.snapshot",
-                        "pt": "msg",
-                        "to": "payload.device.version",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.data.shift-start",
-                        "pt": "msg",
-                        "to": "",
-                        "tot": "num"
-                    }
-                ],
-                "action": "",
-                "property": "",
-                "from": "",
-                "to": "",
-                "reg": false,
-                "x": 540,
-                "y": 240,
-                "wires": [
-                    [
-                        "f6f1682376566bc9"
-                    ]
-                ]
-            },
-            {
-                "id": "b9d13477ac2df90d",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Natural Temp Generator",
-                "func": "//$PROMPT: Create a fuction node which creates a temperature between 10 and 30 celcius each time it's called. Make the changes between each data point seem natural. Output the value to msg.payload.data.temp, round the temp to one decimal place. retain any information which was stored in msg.payload\nconst minTemp = 10\nconst maxTemp = 30\nconst lastTemp = context.get('lastTemp') || (minTemp + maxTemp) / 2\n\n// Generate a random temperature change between -0.5 and 0.5\nconst tempChange = (Math.random() - 0.5)\n\n// Calculate the new temperature\nlet newTemp = lastTemp + tempChange\n\n// Ensure the new temperature is within bounds\nnewTemp = Math.max(minTemp, Math.min(maxTemp, newTemp))\n\n// Round to one decimal place\nnewTemp = Math.round(newTemp * 10) / 10\n\n// Store the new temperature in context\ncontext.set('lastTemp', newTemp)\n\n// Output the temperature\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.temp = newTemp\n\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 230,
-                "y": 340,
-                "wires": [
-                    [
-                        "35b29e3d15640880"
-                    ]
-                ]
-            },
-            {
-                "id": "b2a4dacd5048e17a",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "g": "5f809c8508e0d1cd",
-                "name": "",
-                "props": [],
-                "repeat": "1",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "x": 150,
-                "y": 120,
-                "wires": [
-                    [
-                        "05669a76e631dd55"
-                    ]
-                ]
-            },
-            {
-                "id": "05669a76e631dd55",
-                "type": "random",
-                "z": "FFF0000000000001",
-                "g": "5f809c8508e0d1cd",
-                "name": "",
-                "low": 1,
-                "high": "3",
-                "inte": "true",
-                "property": "payload",
-                "x": 280,
-                "y": 120,
-                "wires": [
-                    [
-                        "0b017e07fcebe174"
-                    ]
-                ]
-            },
-            {
-                "id": "0b017e07fcebe174",
-                "type": "switch",
-                "z": "FFF0000000000001",
-                "g": "5f809c8508e0d1cd",
-                "name": "",
-                "property": "payload",
-                "propertyType": "msg",
-                "rules": [
-                    {
-                        "t": "eq",
-                        "v": "3",
-                        "vt": "num"
-                    }
-                ],
-                "checkall": "true",
-                "repair": false,
-                "outputs": 1,
-                "x": 410,
-                "y": 120,
-                "wires": [
-                    [
-                        "51303d3c38298c76"
-                    ]
-                ]
-            },
-            {
-                "id": "51303d3c38298c76",
-                "type": "change",
-                "z": "FFF0000000000001",
-                "g": "5f809c8508e0d1cd",
-                "name": "",
-                "rules": [
-                    {
-                        "t": "delete",
-                        "p": "payload",
-                        "pt": "msg"
-                    }
-                ],
-                "action": "",
-                "property": "",
-                "from": "",
-                "to": "",
-                "reg": false,
-                "x": 570,
-                "y": 120,
-                "wires": [
-                    [
-                        "3b9dc19d1c3f0a93"
-                    ]
-                ]
-            },
-            {
-                "id": "3b9dc19d1c3f0a93",
-                "type": "link out",
-                "z": "FFF0000000000001",
-                "g": "5f809c8508e0d1cd",
-                "name": "link out 1",
-                "mode": "link",
-                "links": [
-                    "b6e0f35920e86dd2"
-                ],
-                "x": 705,
-                "y": 120,
-                "wires": []
-            },
-            {
-                "id": "b6e0f35920e86dd2",
-                "type": "link in",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "link in 1",
-                "links": [
-                    "3b9dc19d1c3f0a93"
-                ],
-                "x": 95,
-                "y": 240,
-                "wires": [
-                    [
-                        "aa518d8138d01b03"
-                    ]
-                ]
-            },
-            {
-                "id": "f6f1682376566bc9",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Set Shift Start Time",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nmsg.payload.data['shift-start'] = shiftStart\n\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 730,
-                "y": 240,
-                "wires": [
-                    [
-                        "af8ee97de1400c94"
-                    ]
-                ]
-            },
-            {
-                "id": "35b29e3d15640880",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Gradual Cycle Time Setter",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.cycle-time to be a value between 30 and 45, make the changes in the value gradual\nconst minCycleTime = 30\nconst maxCycleTime = 45\n\nif (!context.get('cycleTime')) {\n    context.set('cycleTime', minCycleTime)\n}\n\nlet currentCycleTime = context.get('cycleTime')\n\n// Determine the direction of change\nlet increasing = context.get('increasing')\nif (increasing === undefined) {\n    increasing = true\n    context.set('increasing', increasing)\n}\n\n// Adjust the cycle time gradually\nif (increasing) {\n    currentCycleTime += 1\n    if (currentCycleTime >= maxCycleTime) {\n        currentCycleTime = maxCycleTime\n        context.set('increasing', false)\n    }\n} else {\n    currentCycleTime -= 1\n    if (currentCycleTime <= minCycleTime) {\n        currentCycleTime = minCycleTime\n        context.set('increasing', true)\n    }\n}\n\n// Save the updated cycle time\ncontext.set('cycleTime', currentCycleTime)\n\n// Set the value in the message payload\nmsg.payload = msg.payload || {}\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['cycle-time'] = currentCycleTime\n\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 480,
-                "y": 340,
-                "wires": [
-                    [
-                        "54eb1dc38720bc2a"
-                    ]
-                ]
-            },
-            {
-                "id": "54eb1dc38720bc2a",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Timed Position Selector",
-                "func": "//$PROMPT: Create a function which selects from one of the following list and outputs the value as msg.payload.data.recipe. front-right, front-left, rear-left, rear-right, rear. Only change the value every 2 minutes. Allow any other values to be passed through the function\nconst positions = ['front-right', 'front-left', 'rear-left', 'rear-right', 'rear']\nlet lastChangeTime = context.get('lastChangeTime') || 0\nlet currentIndex = context.get('currentIndex') || 0\n\nconst now = Date.now()\n\nif (now - lastChangeTime >= 30000) { // 2 minutes in milliseconds\n    currentIndex = (currentIndex + 1) % positions.length\n    lastChangeTime = now\n    context.set('lastChangeTime', lastChangeTime)\n    context.set('currentIndex', currentIndex)\n}\n\nmsg.payload = msg.payload || {}\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.recipe = positions[currentIndex]\n\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 730,
-                "y": 340,
-                "wires": [
-                    [
-                        "8806f6a6b51c730e",
-                        "45377e20ce9b7343"
-                    ]
-                ]
-            },
-            {
-                "id": "af8ee97de1400c94",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Set Next Shift End",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-end to be 23:30, 7:30, or 15:30, use whichever is next to happen in local time\nconst now = new Date()\nconst currentHour = now.getHours()\nconst currentMinute = now.getMinutes()\n\nlet nextShiftEnd\n\nif (currentHour < 7 || (currentHour === 7 && currentMinute < 30)) {\n    nextShiftEnd = '07:30'\n} else if (currentHour < 15 || (currentHour === 15 && currentMinute < 30)) {\n    nextShiftEnd = '15:30'\n} else {\n    nextShiftEnd = '23:30'\n}\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['shift-end'] = nextShiftEnd\n\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 930,
-                "y": 240,
-                "wires": [
-                    [
-                        "b9d13477ac2df90d"
-                    ]
-                ]
-            },
-            {
-                "id": "31b3ef6a405a5b4f",
+                "id": "d7a01b30bca6818e",
                 "type": "inject",
                 "z": "FFF0000000000001",
                 "name": "",
@@ -457,18 +213,46 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "dburl",
-                "payloadType": "env",
-                "x": 210,
-                "y": 560,
+                "payload": "hello",
+                "payloadType": "str",
+                "x": 150,
+                "y": 300,
                 "wires": [
                     [
-                        "3c10b0b9221ca3e6"
+                        "e5be3db41198ee2c"
                     ]
                 ]
             },
             {
-                "id": "3c10b0b9221ca3e6",
+                "id": "e5be3db41198ee2c",
+                "type": "string",
+                "z": "FFF0000000000001",
+                "name": "",
+                "methods": [
+                    {
+                        "name": "append",
+                        "params": [
+                            {
+                                "type": "str",
+                                "value": " world"
+                            }
+                        ]
+                    }
+                ],
+                "prop": "payload",
+                "propout": "payload",
+                "object": "msg",
+                "objectout": "msg",
+                "x": 330,
+                "y": 300,
+                "wires": [
+                    [
+                        "ccf6e11e99921954"
+                    ]
+                ]
+            },
+            {
+                "id": "ccf6e11e99921954",
                 "type": "debug",
                 "z": "FFF0000000000001",
                 "name": "debug 2",
@@ -479,13 +263,13 @@
                 "complete": "false",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 380,
-                "y": 540,
+                "x": 500,
+                "y": 300,
                 "wires": []
             }
         ],
         "credentials": {
-            "$": "5b939e8f1602b6858697a351e8994a99/ns="
+            "$": "054aa389a1dc6971a68c066a08e5e6ecL40="
         }
     },
     "settings": {
@@ -495,8 +279,11 @@
             "@flowfuse/nr-assistant": ">=0.1.0",
             "@flowfuse/nr-project-nodes": "~0.7.3",
             "node-red": "3.1.7",
-            "node-red-contrib-moment": "~5.0.0",
-            "node-red-node-random": "~0.4.1"
+            "node-red-contrib-calc": "~1.0.6",
+            "node-red-contrib-md5": "~1.0.4",
+            "node-red-contrib-string": "~1.0.0",
+            "node-red-dashboard": "~3.6.5",
+            "node-red-mongodb": "~0.0.18"
         }
     },
     "ownerType": "device",

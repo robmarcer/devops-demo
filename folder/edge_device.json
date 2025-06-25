@@ -1,9 +1,9 @@
 {
-    "id": "BovAGDkV30",
-    "name": "8.4",
+    "id": "dLZLqAOB3R",
+    "name": "8.5",
     "description": "",
-    "createdAt": "2025-06-19T15:48:21.790Z",
-    "updatedAt": "2025-06-19T15:48:21.790Z",
+    "createdAt": "2025-06-25T12:44:28.657Z",
+    "updatedAt": "2025-06-25T12:44:28.657Z",
     "flows": {
         "flows": [
             {
@@ -526,7 +526,7 @@
             }
         ],
         "credentials": {
-            "$": "b66b5efbeb6c70d0b3a149a24f072712jvY="
+            "$": "3ec098cee93a4199ef1a76c117923de1nTI="
         }
     },
     "settings": {
@@ -535,7 +535,7 @@
         "modules": {
             "@flowfuse/nr-assistant": ">=0.1.0",
             "@flowfuse/nr-project-nodes": "~0.7.3",
-            "node-red": "3.1.7",
+            "node-red": "latest",
             "node-red-contrib-moment": "~5.0.0",
             "node-red-node-random": "~0.4.1"
         }

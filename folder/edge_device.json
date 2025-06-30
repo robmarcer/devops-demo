@@ -1,9 +1,9 @@
 {
-    "id": "Ydznyd4K36",
-    "name": "8.7",
+    "id": "0GvDPy6VvE",
+    "name": "8.6",
     "description": "",
-    "createdAt": "2025-06-30T11:27:47.170Z",
-    "updatedAt": "2025-06-30T11:27:47.170Z",
+    "createdAt": "2025-06-30T10:36:23.172Z",
+    "updatedAt": "2025-06-30T10:36:23.172Z",
     "flows": {
         "flows": [
             {
@@ -523,51 +523,10 @@
                 "x": 360,
                 "y": 640,
                 "wires": []
-            },
-            {
-                "id": "808586bbc75132f1",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "It's hot!",
-                "payloadType": "str",
-                "x": 190,
-                "y": 760,
-                "wires": [
-                    [
-                        "a81c0280a1cb9167"
-                    ]
-                ]
-            },
-            {
-                "id": "a81c0280a1cb9167",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 4",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 360,
-                "y": 760,
-                "wires": []
             }
         ],
         "credentials": {
-            "$": "7c4b865f3de470a37283c15242a821aflag="
+            "$": "dcdf68643cd885164929ddf4ebc8c3a4PU0="
         }
     },
     "settings": {

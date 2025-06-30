@@ -1,9 +1,9 @@
 {
-    "id": "dLZLqAOB3R",
-    "name": "8.5",
+    "id": "0GvDPy6VvE",
+    "name": "8.6",
     "description": "",
-    "createdAt": "2025-06-25T12:44:28.657Z",
-    "updatedAt": "2025-06-25T12:44:28.657Z",
+    "createdAt": "2025-06-30T10:36:23.172Z",
+    "updatedAt": "2025-06-30T10:36:23.172Z",
     "flows": {
         "flows": [
             {
@@ -526,7 +526,7 @@
             }
         ],
         "credentials": {
-            "$": "418d0cf2d8593652e6a4a56713520b97XNc="
+            "$": "67853dc25830b27408ae5f17fb6fc8d3zfs="
         }
     },
     "settings": {

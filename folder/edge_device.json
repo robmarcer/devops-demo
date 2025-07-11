@@ -1,9 +1,9 @@
 {
-    "id": "qYz8w01O3G",
-    "name": "9.1",
+    "id": "A9vGbaO7zY",
+    "name": "9.2",
     "description": "",
-    "createdAt": "2025-07-08T15:58:10.579Z",
-    "updatedAt": "2025-07-08T15:58:10.579Z",
+    "createdAt": "2025-07-11T13:41:05.810Z",
+    "updatedAt": "2025-07-11T13:41:05.810Z",
     "flows": {
         "flows": [
             {
@@ -46,13 +46,13 @@
                     "aa518d8138d01b03",
                     "8806f6a6b51c730e",
                     "7962d8d523d717a1",
-                    "e32534568c3d2411",
                     "b9d13477ac2df90d",
                     "b6e0f35920e86dd2",
                     "f6f1682376566bc9",
                     "35b29e3d15640880",
                     "54eb1dc38720bc2a",
-                    "af8ee97de1400c94"
+                    "af8ee97de1400c94",
+                    "e32534568c3d2411"
                 ],
                 "x": 54,
                 "y": 199,
@@ -144,74 +144,6 @@
                 "wires": [
                     [
                         "e32534568c3d2411"
-                    ]
-                ]
-            },
-            {
-                "id": "e32534568c3d2411",
-                "type": "change",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "",
-                "rules": [
-                    {
-                        "t": "move",
-                        "p": "payload.device",
-                        "pt": "msg",
-                        "to": "payload.store",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.device.env",
-                        "pt": "msg",
-                        "to": "payload.store[0]",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.device.location",
-                        "pt": "msg",
-                        "to": "payload.store[1]",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.device.ipc",
-                        "pt": "msg",
-                        "to": "payload.store[2]",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "delete",
-                        "p": "payload.store",
-                        "pt": "msg"
-                    },
-                    {
-                        "t": "move",
-                        "p": "payload.snapshot",
-                        "pt": "msg",
-                        "to": "payload.device.version",
-                        "tot": "msg"
-                    },
-                    {
-                        "t": "set",
-                        "p": "payload.data.shift-start",
-                        "pt": "msg",
-                        "to": "",
-                        "tot": "num"
-                    }
-                ],
-                "action": "",
-                "property": "",
-                "from": "",
-                "to": "",
-                "reg": false,
-                "x": 540,
-                "y": 240,
-                "wires": [
-                    [
-                        "f6f1682376566bc9"
                     ]
                 ]
             },
@@ -482,10 +414,85 @@
                 "x": 380,
                 "y": 580,
                 "wires": []
+            },
+            {
+                "id": "e32534568c3d2411",
+                "type": "change",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "",
+                "rules": [
+                    {
+                        "t": "move",
+                        "p": "payload.device",
+                        "pt": "msg",
+                        "to": "payload.store",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.env",
+                        "pt": "msg",
+                        "to": "payload.store[0]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.location",
+                        "pt": "msg",
+                        "to": "payload.store[1]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.ipc",
+                        "pt": "msg",
+                        "to": "payload.store[2]",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "delete",
+                        "p": "payload.store",
+                        "pt": "msg"
+                    },
+                    {
+                        "t": "move",
+                        "p": "payload.snapshot",
+                        "pt": "msg",
+                        "to": "payload.device.version",
+                        "tot": "msg"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.data.shift-start",
+                        "pt": "msg",
+                        "to": "",
+                        "tot": "num"
+                    },
+                    {
+                        "t": "set",
+                        "p": "payload.device.brand",
+                        "pt": "msg",
+                        "to": "ford",
+                        "tot": "str"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 540,
+                "y": 240,
+                "wires": [
+                    [
+                        "f6f1682376566bc9"
+                    ]
+                ]
             }
         ],
         "credentials": {
-            "$": "95cee7a0d4ebf4814ddaadbd96def9faO0k="
+            "$": "fa56c05deef976797567a5eedd3253186eo="
         }
     },
     "settings": {

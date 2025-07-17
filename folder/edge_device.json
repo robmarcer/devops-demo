@@ -1,9 +1,9 @@
 {
-    "id": "jVZJlO1OzB",
-    "name": "9.7",
+    "id": "alZPwO8EvV",
+    "name": "9.8",
     "description": "",
-    "createdAt": "2025-07-17T21:38:37.012Z",
-    "updatedAt": "2025-07-17T21:38:37.012Z",
+    "createdAt": "2025-07-17T21:42:33.329Z",
+    "updatedAt": "2025-07-17T21:42:33.329Z",
     "flows": {
         "flows": [
             {
@@ -68,7 +68,7 @@
                 "mode": "link",
                 "broadcast": true,
                 "project": "0bcafdeb-2dbf-46f5-b91f-0e91c529832f",
-                "topic": "confirm",
+                "topic": "send",
                 "x": 970,
                 "y": 360,
                 "wires": []
@@ -243,7 +243,7 @@
                 "g": "5f809c8508e0d1cd",
                 "name": "",
                 "props": [],
-                "repeat": ".1",
+                "repeat": ".5",
                 "crontab": "",
                 "once": false,
                 "onceDelay": 0.1,
@@ -485,7 +485,7 @@
             }
         ],
         "credentials": {
-            "$": "f8ebcb36c38562c0d3a58771ef0774e2arg="
+            "$": "85a6fe30dd1987b1db0d1025a3b1cdbfXCs="
         }
     },
     "settings": {

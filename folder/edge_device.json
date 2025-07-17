@@ -1,9 +1,9 @@
 {
-    "id": "G2zyxgQG3L",
-    "name": "9.6",
+    "id": "jVZJlO1OzB",
+    "name": "9.7",
     "description": "",
-    "createdAt": "2025-07-17T21:32:39.460Z",
-    "updatedAt": "2025-07-17T21:32:39.460Z",
+    "createdAt": "2025-07-17T21:38:37.012Z",
+    "updatedAt": "2025-07-17T21:38:37.012Z",
     "flows": {
         "flows": [
             {
@@ -114,7 +114,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "debug 1",
-                "active": false,
+                "active": true,
                 "tosidebar": true,
                 "console": false,
                 "tostatus": false,
@@ -243,7 +243,7 @@
                 "g": "5f809c8508e0d1cd",
                 "name": "",
                 "props": [],
-                "repeat": "1",
+                "repeat": ".1",
                 "crontab": "",
                 "once": false,
                 "onceDelay": 0.1,
@@ -485,7 +485,7 @@
             }
         ],
         "credentials": {
-            "$": "13070a06bceb530af643ee5700a84af4thQ="
+            "$": "f8ebcb36c38562c0d3a58771ef0774e2arg="
         }
     },
     "settings": {
@@ -493,7 +493,8 @@
             "palette": {
                 "modules": {
                     "@flowfuse/nr-project-nodes": "~0.7.5",
-                    "node-red-node-random": "~0.4.1"
+                    "node-red-node-random": "~0.4.1",
+                    "@flowfuse/nr-assistant": ">=0.1.0"
                 }
             }
         },
@@ -501,7 +502,8 @@
         "modules": {
             "@flowfuse/nr-project-nodes": "~0.7.5",
             "node-red": "4.0.8",
-            "node-red-node-random": "~0.4.1"
+            "node-red-node-random": "~0.4.1",
+            "@flowfuse/nr-assistant": ">=0.1.0"
         }
     },
     "ownerType": "device",

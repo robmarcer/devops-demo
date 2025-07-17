@@ -1,9 +1,9 @@
 {
-    "id": "rNzKWOWxz8",
-    "name": "9.4",
+    "id": "BWZgGD0OZY",
+    "name": "9.5",
     "description": "",
-    "createdAt": "2025-07-16T16:37:18.272Z",
-    "updatedAt": "2025-07-16T16:37:18.272Z",
+    "createdAt": "2025-07-17T16:32:32.816Z",
+    "updatedAt": "2025-07-17T16:32:32.816Z",
     "flows": {
         "flows": [
             {
@@ -542,7 +542,7 @@
             }
         ],
         "credentials": {
-            "$": "65f421a9754030657d016264f8f7e17cAhY="
+            "$": "53664c1f1745ae327c56a5684d165313MfU="
         }
     },
     "settings": {

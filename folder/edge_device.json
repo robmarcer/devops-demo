@@ -1,9 +1,9 @@
 {
-    "id": "BWZgGD0OZY",
-    "name": "9.5",
+    "id": "G2zyxgQG3L",
+    "name": "9.6",
     "description": "",
-    "createdAt": "2025-07-17T16:32:32.816Z",
-    "updatedAt": "2025-07-17T16:32:32.816Z",
+    "createdAt": "2025-07-17T21:32:39.460Z",
+    "updatedAt": "2025-07-17T21:32:39.460Z",
     "flows": {
         "flows": [
             {
@@ -482,88 +482,25 @@
                 "x": 460,
                 "y": 580,
                 "wires": []
-            },
-            {
-                "id": "bd3bbb66632315ab",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    },
-                    {
-                        "p": "topic",
-                        "vt": "str"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "",
-                "payloadType": "date",
-                "x": 240,
-                "y": 640,
-                "wires": [
-                    [
-                        "e2541c9310312eaa"
-                    ]
-                ]
-            },
-            {
-                "id": "e2541c9310312eaa",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 3",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 420,
-                "y": 640,
-                "wires": []
-            },
-            {
-                "id": "84aa80d8233b23a0",
-                "type": "amazon-echo-device",
-                "z": "FFF0000000000001",
-                "name": "example",
-                "topic": "",
-                "x": 740,
-                "y": 760,
-                "wires": [
-                    []
-                ]
             }
         ],
         "credentials": {
-            "$": "53664c1f1745ae327c56a5684d165313MfU="
+            "$": "13070a06bceb530af643ee5700a84af4thQ="
         }
     },
     "settings": {
         "settings": {
             "palette": {
                 "modules": {
-                    "@flowfuse/nr-assistant": ">=0.1.0",
-                    "@flowfuse/nr-project-nodes": "~0.7.3",
-                    "node-red-contrib-amazon-echo": "~0.1.14",
-                    "node-red-contrib-moment": "~5.0.0",
+                    "@flowfuse/nr-project-nodes": "~0.7.5",
                     "node-red-node-random": "~0.4.1"
                 }
             }
         },
         "env": {},
         "modules": {
-            "@flowfuse/nr-assistant": ">=0.1.0",
-            "@flowfuse/nr-project-nodes": "~0.7.3",
+            "@flowfuse/nr-project-nodes": "~0.7.5",
             "node-red": "4.0.8",
-            "node-red-contrib-amazon-echo": "~0.1.14",
-            "node-red-contrib-moment": "~5.0.0",
             "node-red-node-random": "~0.4.1"
         }
     },

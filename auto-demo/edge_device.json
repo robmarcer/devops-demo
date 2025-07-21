@@ -1,9 +1,9 @@
 {
-    "id": "BWZgGkV0ZY",
-    "name": "1.1",
+    "id": "pRveq6w8vA",
+    "name": "1.2",
     "description": "",
-    "createdAt": "2025-07-21T14:46:36.084Z",
-    "updatedAt": "2025-07-21T14:46:36.084Z",
+    "createdAt": "2025-07-21T14:54:20.781Z",
+    "updatedAt": "2025-07-21T14:54:20.781Z",
     "flows": {
         "flows": [
             {
@@ -281,10 +281,55 @@
                         "3474487e149bd53e"
                     ]
                 ]
+            },
+            {
+                "id": "ced8b7861af72d75",
+                "type": "inject",
+                "z": "b5383581f3d512b6",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "",
+                "payloadType": "date",
+                "x": 440,
+                "y": 540,
+                "wires": [
+                    [
+                        "0f70b02c0f401618"
+                    ]
+                ]
+            },
+            {
+                "id": "0f70b02c0f401618",
+                "type": "debug",
+                "z": "b5383581f3d512b6",
+                "name": "debug 2",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 600,
+                "y": 540,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "8c373c561dea44b853f376d6a3ed778cqs4="
+            "$": "49d90602903869eeced43b366456213b7qI="
         }
     },
     "settings": {

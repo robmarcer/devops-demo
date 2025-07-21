@@ -1,9 +1,9 @@
 {
-    "id": "dezqpor13W",
+    "id": "wd3RLKnMvr",
     "name": "1.0",
     "description": "",
-    "createdAt": "2025-07-21T14:21:30.136Z",
-    "updatedAt": "2025-07-21T14:21:30.136Z",
+    "createdAt": "2025-07-21T14:40:23.318Z",
+    "updatedAt": "2025-07-21T14:40:23.318Z",
     "flows": {
         "flows": [
             {
@@ -15,53 +15,276 @@
                 "env": []
             },
             {
-                "id": "4670738579702f60",
+                "id": "0dadb1af233351ed",
+                "type": "group",
+                "z": "b5383581f3d512b6",
+                "name": "Trigger",
+                "style": {
+                    "label": true
+                },
+                "nodes": [
+                    "c0b28f48764f6e43",
+                    "f431af0b592d8d32"
+                ],
+                "x": 134,
+                "y": 59,
+                "w": 222,
+                "h": 82
+            },
+            {
+                "id": "0cb69f9dca6e597b",
+                "type": "group",
+                "z": "b5383581f3d512b6",
+                "name": "Trigger the pipeline stage via the API",
+                "style": {
+                    "label": true
+                },
+                "nodes": [
+                    "3474487e149bd53e",
+                    "85e56db7199bdb60",
+                    "9eb2afdf16193005"
+                ],
+                "x": 124,
+                "y": 299,
+                "w": 482,
+                "h": 82
+            },
+            {
+                "id": "a3d37e5fd9781f0f",
+                "type": "group",
+                "z": "b5383581f3d512b6",
+                "name": "Check if this is a production instance",
+                "style": {
+                    "label": true
+                },
+                "nodes": [
+                    "b46e96fc771d01fb",
+                    "bdaa32599d814006",
+                    "4bf5721782bc5ea4",
+                    "5ccd3762c302251b",
+                    "60f28e9e2ddc0d24"
+                ],
+                "x": 124,
+                "y": 159,
+                "w": 922,
+                "h": 122
+            },
+            {
+                "id": "c0b28f48764f6e43",
                 "type": "inject",
                 "z": "b5383581f3d512b6",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    },
-                    {
-                        "p": "topic",
-                        "vt": "str"
-                    }
-                ],
+                "g": "0dadb1af233351ed",
+                "name": "Trigger",
+                "props": [],
                 "repeat": "",
                 "crontab": "",
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "",
-                "payloadType": "date",
-                "x": 160,
-                "y": 120,
+                "x": 230,
+                "y": 100,
                 "wires": [
                     [
-                        "d659d0f4af0ba1eb"
+                        "f431af0b592d8d32"
                     ]
                 ]
             },
             {
-                "id": "d659d0f4af0ba1eb",
+                "id": "3474487e149bd53e",
+                "type": "http request",
+                "z": "b5383581f3d512b6",
+                "g": "0cb69f9dca6e597b",
+                "name": "",
+                "method": "PUT",
+                "ret": "txt",
+                "paytoqs": "ignore",
+                "url": "app.flowfuse.com/api/v1/pipelines/Zw0gm2dNVL/stages/mWk36gbvAL/deploy",
+                "tls": "",
+                "persist": false,
+                "proxy": "",
+                "insecureHTTPParser": false,
+                "authType": "bearer",
+                "senderr": false,
+                "headers": [],
+                "x": 310,
+                "y": 340,
+                "wires": [
+                    [
+                        "85e56db7199bdb60"
+                    ]
+                ]
+            },
+            {
+                "id": "d67fa2158570866d",
+                "type": "comment",
+                "z": "b5383581f3d512b6",
+                "name": "Token",
+                "info": "ffpat_LWG-oSNGHe97hWxmfymZ5--UpyiG_4QCXa5kRHAVMLg",
+                "x": 190,
+                "y": 800,
+                "wires": []
+            },
+            {
+                "id": "f431af0b592d8d32",
+                "type": "link out",
+                "z": "b5383581f3d512b6",
+                "g": "0dadb1af233351ed",
+                "name": "link out 1",
+                "mode": "link",
+                "links": [
+                    "b46e96fc771d01fb"
+                ],
+                "x": 315,
+                "y": 100,
+                "wires": []
+            },
+            {
+                "id": "b46e96fc771d01fb",
+                "type": "link in",
+                "z": "b5383581f3d512b6",
+                "g": "a3d37e5fd9781f0f",
+                "name": "link in 1",
+                "links": [
+                    "f431af0b592d8d32"
+                ],
+                "x": 165,
+                "y": 220,
+                "wires": [
+                    [
+                        "bdaa32599d814006"
+                    ]
+                ]
+            },
+            {
+                "id": "bdaa32599d814006",
+                "type": "change",
+                "z": "b5383581f3d512b6",
+                "g": "a3d37e5fd9781f0f",
+                "name": "msg.device = $FF_INSTANCE_NAME",
+                "rules": [
+                    {
+                        "t": "set",
+                        "p": "device",
+                        "pt": "msg",
+                        "to": "FF_INSTANCE_NAME",
+                        "tot": "env"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 350,
+                "y": 220,
+                "wires": [
+                    [
+                        "4bf5721782bc5ea4"
+                    ]
+                ]
+            },
+            {
+                "id": "85e56db7199bdb60",
                 "type": "debug",
                 "z": "b5383581f3d512b6",
+                "g": "0cb69f9dca6e597b",
                 "name": "debug 1",
                 "active": true,
                 "tosidebar": true,
                 "console": false,
                 "tostatus": false,
-                "complete": "false",
+                "complete": "true",
+                "targetType": "full",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 320,
-                "y": 120,
+                "x": 500,
+                "y": 340,
                 "wires": []
+            },
+            {
+                "id": "4bf5721782bc5ea4",
+                "type": "switch",
+                "z": "b5383581f3d512b6",
+                "g": "a3d37e5fd9781f0f",
+                "name": "Is this the device called example-import-23?",
+                "property": "device",
+                "propertyType": "msg",
+                "rules": [
+                    {
+                        "t": "eq",
+                        "v": "example-import-23",
+                        "vt": "str"
+                    },
+                    {
+                        "t": "else"
+                    }
+                ],
+                "checkall": "true",
+                "repair": false,
+                "outputs": 2,
+                "x": 690,
+                "y": 220,
+                "wires": [
+                    [
+                        "60f28e9e2ddc0d24"
+                    ],
+                    [
+                        "5ccd3762c302251b"
+                    ]
+                ]
+            },
+            {
+                "id": "5ccd3762c302251b",
+                "type": "debug",
+                "z": "b5383581f3d512b6",
+                "g": "a3d37e5fd9781f0f",
+                "name": "debug 3",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "true",
+                "targetType": "full",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 940,
+                "y": 240,
+                "wires": []
+            },
+            {
+                "id": "60f28e9e2ddc0d24",
+                "type": "link out",
+                "z": "b5383581f3d512b6",
+                "g": "a3d37e5fd9781f0f",
+                "name": "link out 2",
+                "mode": "link",
+                "links": [
+                    "9eb2afdf16193005"
+                ],
+                "x": 895,
+                "y": 200,
+                "wires": []
+            },
+            {
+                "id": "9eb2afdf16193005",
+                "type": "link in",
+                "z": "b5383581f3d512b6",
+                "g": "0cb69f9dca6e597b",
+                "name": "link in 2",
+                "links": [
+                    "60f28e9e2ddc0d24"
+                ],
+                "x": 165,
+                "y": 340,
+                "wires": [
+                    [
+                        "3474487e149bd53e"
+                    ]
+                ]
             }
         ],
         "credentials": {
-            "$": "1ef4866a9f32341148943bcca97a1e20aOY="
+            "$": "2832328d4c9eed787145c1013b66a585I/c="
         }
     },
     "settings": {

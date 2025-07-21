@@ -1,9 +1,9 @@
 {
-    "id": "OjzmadYNza",
-    "name": "Auto Snapshot - 2025-07-21 14:43:09",
-    "description": "Instance Auto Snapshot taken following a Full deployment",
-    "createdAt": "2025-07-21T14:43:09.940Z",
-    "updatedAt": "2025-07-21T14:43:09.940Z",
+    "id": "BWZgGkV0ZY",
+    "name": "1.1",
+    "description": "",
+    "createdAt": "2025-07-21T14:46:36.084Z",
+    "updatedAt": "2025-07-21T14:46:36.084Z",
     "flows": {
         "flows": [
             {
@@ -120,8 +120,8 @@
                 "z": "b5383581f3d512b6",
                 "name": "Token",
                 "info": "ffpat_LWG-oSNGHe97hWxmfymZ5--UpyiG_4QCXa5kRHAVMLg",
-                "x": 190,
-                "y": 800,
+                "x": 250,
+                "y": 600,
                 "wires": []
             },
             {
@@ -284,7 +284,7 @@
             }
         ],
         "credentials": {
-            "$": "92dacb8fad054107197209cbcb96074bTR8="
+            "$": "8c373c561dea44b853f376d6a3ed778cqs4="
         }
     },
     "settings": {

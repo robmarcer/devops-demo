@@ -1,9 +1,9 @@
 {
-    "id": "wd3RLKnMvr",
-    "name": "1.0",
-    "description": "",
-    "createdAt": "2025-07-21T14:40:23.318Z",
-    "updatedAt": "2025-07-21T14:40:23.318Z",
+    "id": "OjzmadYNza",
+    "name": "Auto Snapshot - 2025-07-21 14:43:09",
+    "description": "Instance Auto Snapshot taken following a Full deployment",
+    "createdAt": "2025-07-21T14:43:09.940Z",
+    "updatedAt": "2025-07-21T14:43:09.940Z",
     "flows": {
         "flows": [
             {
@@ -28,7 +28,7 @@
                 ],
                 "x": 134,
                 "y": 59,
-                "w": 222,
+                "w": 242,
                 "h": 82
             },
             {
@@ -76,12 +76,12 @@
                 "g": "0dadb1af233351ed",
                 "name": "Trigger",
                 "props": [],
-                "repeat": "",
+                "repeat": "60",
                 "crontab": "",
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "x": 230,
+                "x": 240,
                 "y": 100,
                 "wires": [
                     [
@@ -134,7 +134,7 @@
                 "links": [
                     "b46e96fc771d01fb"
                 ],
-                "x": 315,
+                "x": 335,
                 "y": 100,
                 "wires": []
             },
@@ -284,7 +284,7 @@
             }
         ],
         "credentials": {
-            "$": "2832328d4c9eed787145c1013b66a585I/c="
+            "$": "92dacb8fad054107197209cbcb96074bTR8="
         }
     },
     "settings": {

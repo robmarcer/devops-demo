@@ -1,9 +1,9 @@
 {
-    "id": "B0Zka2GVzq",
-    "name": "1.3",
+    "id": "P0v2lKRy3E",
+    "name": "1.4",
     "description": "",
-    "createdAt": "2025-07-21T15:04:04.538Z",
-    "updatedAt": "2025-07-21T15:04:04.538Z",
+    "createdAt": "2025-07-21T15:07:29.117Z",
+    "updatedAt": "2025-07-21T15:07:29.117Z",
     "flows": {
         "flows": [
             {
@@ -326,10 +326,55 @@
                 "x": 600,
                 "y": 540,
                 "wires": []
+            },
+            {
+                "id": "7546ea98805531ce",
+                "type": "inject",
+                "z": "b5383581f3d512b6",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "",
+                "payloadType": "date",
+                "x": 420,
+                "y": 480,
+                "wires": [
+                    [
+                        "8ee152d4c0e90ef2"
+                    ]
+                ]
+            },
+            {
+                "id": "8ee152d4c0e90ef2",
+                "type": "debug",
+                "z": "b5383581f3d512b6",
+                "name": "debug 4",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 580,
+                "y": 480,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "f8439585128da878e6802488a8f6bf419pTz+YL4orrEBLQA3+xIoq8te+gvRrV2lrO9112GtLO6VnOHle+IkWnmBGUmlyYI"
+            "$": "9522e1a2ba0b64c167120b5211847094YEnuEldhTTy0cFUq0+jgL6pMLxY8wIp+LS1qTwCQPUGmFNzcd79e5cAgtDzHNgsZ"
         }
     },
     "settings": {

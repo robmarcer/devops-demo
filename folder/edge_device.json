@@ -1,9 +1,9 @@
 {
-    "id": "alZPwqYYvV",
-    "name": "1.0",
+    "id": "ky36kjeDzD",
+    "name": "1.1",
     "description": "",
-    "createdAt": "2025-07-22T14:55:17.174Z",
-    "updatedAt": "2025-07-22T14:55:17.174Z",
+    "createdAt": "2025-07-22T15:21:12.066Z",
+    "updatedAt": "2025-07-22T15:21:12.066Z",
     "flows": {
         "flows": [
             {
@@ -114,7 +114,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "debug 1",
-                "active": true,
+                "active": false,
                 "tosidebar": true,
                 "console": false,
                 "tostatus": false,
@@ -441,10 +441,55 @@
                         "b9d13477ac2df90d"
                     ]
                 ]
+            },
+            {
+                "id": "e9aa2965f748a0f0",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "",
+                "payloadType": "date",
+                "x": 300,
+                "y": 560,
+                "wires": [
+                    [
+                        "713ddb9c78edd9b5"
+                    ]
+                ]
+            },
+            {
+                "id": "713ddb9c78edd9b5",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 2",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 460,
+                "y": 560,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "af7d389a09c217004e641cfcc50959d8DQY="
+            "$": "a766376a47696d2ec3833d1fcfde7951N1Q="
         }
     },
     "settings": {

@@ -1,9 +1,9 @@
 {
-    "id": "Oxvd6oKV31",
-    "name": "8.8",
+    "id": "alZPwqYYvV",
+    "name": "1.0",
     "description": "",
-    "createdAt": "2025-07-03T13:58:52.676Z",
-    "updatedAt": "2025-07-03T13:58:52.676Z",
+    "createdAt": "2025-07-22T14:55:17.174Z",
+    "updatedAt": "2025-07-22T14:55:17.174Z",
     "flows": {
         "flows": [
             {
@@ -68,7 +68,7 @@
                 "mode": "link",
                 "broadcast": true,
                 "project": "0bcafdeb-2dbf-46f5-b91f-0e91c529832f",
-                "topic": "confirm",
+                "topic": "send",
                 "x": 970,
                 "y": 360,
                 "wires": []
@@ -114,7 +114,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "debug 1",
-                "active": false,
+                "active": true,
                 "tosidebar": true,
                 "console": false,
                 "tostatus": false,
@@ -243,7 +243,7 @@
                 "g": "5f809c8508e0d1cd",
                 "name": "",
                 "props": [],
-                "repeat": "1",
+                "repeat": ".5",
                 "crontab": "",
                 "once": false,
                 "onceDelay": 0.1,
@@ -441,103 +441,28 @@
                         "b9d13477ac2df90d"
                     ]
                 ]
-            },
-            {
-                "id": "31b3ef6a405a5b4f",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "dburl",
-                "payloadType": "env",
-                "x": 210,
-                "y": 560,
-                "wires": [
-                    [
-                        "3c10b0b9221ca3e6"
-                    ]
-                ]
-            },
-            {
-                "id": "3c10b0b9221ca3e6",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 2",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 360,
-                "y": 560,
-                "wires": []
-            },
-            {
-                "id": "5d9f82af330b132e",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "Hello world",
-                "payloadType": "str",
-                "x": 200,
-                "y": 640,
-                "wires": [
-                    [
-                        "695efec2dc880dec"
-                    ]
-                ]
-            },
-            {
-                "id": "695efec2dc880dec",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 3",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 360,
-                "y": 640,
-                "wires": []
             }
         ],
         "credentials": {
-            "$": "185d3d04f535ae96c18466572fc9ab16yLY="
+            "$": "af7d389a09c217004e641cfcc50959d8DQY="
         }
     },
     "settings": {
-        "settings": {},
+        "settings": {
+            "palette": {
+                "modules": {
+                    "@flowfuse/nr-project-nodes": "~0.7.5",
+                    "node-red-node-random": "~0.4.1",
+                    "@flowfuse/nr-assistant": ">=0.1.0"
+                }
+            }
+        },
         "env": {},
         "modules": {
-            "@flowfuse/nr-assistant": ">=0.1.0",
-            "@flowfuse/nr-project-nodes": "~0.7.3",
-            "node-red": "latest",
-            "node-red-contrib-moment": "~5.0.0",
-            "node-red-node-random": "~0.4.1"
+            "@flowfuse/nr-project-nodes": "~0.7.5",
+            "node-red": "4.0.8",
+            "node-red-node-random": "~0.4.1",
+            "@flowfuse/nr-assistant": ">=0.1.0"
         }
     },
     "ownerType": "device",

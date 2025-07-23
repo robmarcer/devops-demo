@@ -1,9 +1,9 @@
 {
-    "id": "ky36kjeDzD",
-    "name": "1.1",
+    "id": "qYz8wmpO3G",
+    "name": "1.2",
     "description": "",
-    "createdAt": "2025-07-22T15:21:12.066Z",
-    "updatedAt": "2025-07-22T15:21:12.066Z",
+    "createdAt": "2025-07-23T16:29:45.536Z",
+    "updatedAt": "2025-07-23T16:29:45.536Z",
     "flows": {
         "flows": [
             {
@@ -486,10 +486,55 @@
                 "x": 460,
                 "y": 560,
                 "wires": []
+            },
+            {
+                "id": "ce31dccd35606332",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "",
+                "payloadType": "date",
+                "x": 300,
+                "y": 640,
+                "wires": [
+                    [
+                        "b9db5752217b7b03"
+                    ]
+                ]
+            },
+            {
+                "id": "b9db5752217b7b03",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 3",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 460,
+                "y": 640,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "a766376a47696d2ec3833d1fcfde7951N1Q="
+            "$": "a160432ad952a020c19e98e510ba0cee1O4="
         }
     },
     "settings": {

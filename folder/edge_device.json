@@ -1,9 +1,9 @@
 {
-    "id": "alZPwM1kvV",
-    "name": "Auto Snapshot - 2025-08-06 10:56:25",
-    "description": "Device Auto Snapshot taken following a Full deployment",
-    "createdAt": "2025-08-06T10:56:25.731Z",
-    "updatedAt": "2025-08-06T10:56:25.731Z",
+    "id": "qYz8wmpO3G",
+    "name": "1.2",
+    "description": "",
+    "createdAt": "2025-07-23T16:29:45.536Z",
+    "updatedAt": "2025-07-23T16:29:45.536Z",
     "flows": {
         "flows": [
             {
@@ -58,11 +58,6 @@
                 "y": 199,
                 "w": 1012,
                 "h": 202
-            },
-            {
-                "id": "25f469d562e6cdcc",
-                "type": "global-config",
-                "env": []
             },
             {
                 "id": "45377e20ce9b7343",
@@ -446,33 +441,128 @@
                         "b9d13477ac2df90d"
                     ]
                 ]
+            },
+            {
+                "id": "e9aa2965f748a0f0",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "",
+                "payloadType": "date",
+                "x": 300,
+                "y": 560,
+                "wires": [
+                    [
+                        "713ddb9c78edd9b5"
+                    ]
+                ]
+            },
+            {
+                "id": "713ddb9c78edd9b5",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 2",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 460,
+                "y": 560,
+                "wires": []
+            },
+            {
+                "id": "ce31dccd35606332",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    },
+                    {
+                        "p": "topic",
+                        "vt": "str"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "",
+                "payloadType": "date",
+                "x": 300,
+                "y": 640,
+                "wires": [
+                    [
+                        "b9db5752217b7b03"
+                    ]
+                ]
+            },
+            {
+                "id": "b9db5752217b7b03",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 3",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 460,
+                "y": 640,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "b631b67728f1d05a3a96e9b1e8f31d71GZc="
+            "$": "34a518109489179662e2e745c83c2f9bvfw="
         }
     },
     "settings": {
         "settings": {
             "palette": {
                 "modules": {
-                    "@bartbutenaers/node-red-rtsp-to-mjpeg": "~1.0.0",
-                    "@flowfuse/nr-assistant": ">=0.1.0",
                     "@flowfuse/nr-project-nodes": "~0.7.5",
-                    "node-red-contrib-rtsp-client": "~0.1.3",
-                    "node-red-node-random": "~0.4.1"
+                    "node-red-node-random": "~0.4.1",
+                    "@flowfuse/nr-assistant": ">=0.1.0"
                 }
             }
         },
         "env": {},
         "modules": {
-            "@bartbutenaers/node-red-rtsp-to-mjpeg": "~1.0.0",
-            "@flowfuse/nr-assistant": ">=0.1.0",
             "@flowfuse/nr-project-nodes": "~0.7.5",
             "node-red": "4.0.8",
-            "node-red-contrib-rtsp-client": "~0.1.3",
-            "node-red-node-random": "~0.4.1"
+            "node-red-node-random": "~0.4.1",
+            "@flowfuse/nr-assistant": ">=0.1.0"
         }
     },
-    "ownerType": "device"
+    "ownerType": "device",
+    "user": {
+        "id": "6nkvARPgRx",
+        "username": "robmarcer-flowforge",
+        "name": "Rob Marcer",
+        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
+        "admin": true,
+        "createdAt": "2022-09-12T08:25:14.762Z",
+        "suspended": false
+    }
 }

@@ -1,9 +1,9 @@
 {
-    "id": "alZPd41eZV",
-    "name": "1.5",
+    "id": "rNzKPqxxv8",
+    "name": "1.6",
     "description": "",
-    "createdAt": "2025-08-12T16:21:52.409Z",
-    "updatedAt": "2025-08-12T16:21:52.409Z",
+    "createdAt": "2025-08-19T13:20:15.106Z",
+    "updatedAt": "2025-08-19T13:20:15.106Z",
     "flows": {
         "flows": [
             {
@@ -486,10 +486,51 @@
                 "x": 540,
                 "y": 620,
                 "wires": []
+            },
+            {
+                "id": "ffcb70adbb3a9b2e",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "Hello world",
+                "payloadType": "str",
+                "x": 360,
+                "y": 700,
+                "wires": [
+                    [
+                        "582a01e8d6c1c577"
+                    ]
+                ]
+            },
+            {
+                "id": "582a01e8d6c1c577",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 3",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 540,
+                "y": 700,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "da47a0087259cafd65f6346d6f4a97cclNg="
+            "$": "cc652dfc2487d845821d9f689fa82358Zo8="
         }
     },
     "settings": {
@@ -498,7 +539,8 @@
                 "modules": {
                     "@flowfuse/nr-project-nodes": "~0.7.5",
                     "node-red-node-random": "~0.4.1",
-                    "@flowfuse/nr-assistant": ">=0.1.0"
+                    "@flowfuse/nr-assistant": ">=0.1.0",
+                    "@flowfuse/nr-mqtt-nodes": ">=0.1.0"
                 }
             }
         },
@@ -507,7 +549,8 @@
             "@flowfuse/nr-project-nodes": "~0.7.5",
             "node-red": "4.0.8",
             "node-red-node-random": "~0.4.1",
-            "@flowfuse/nr-assistant": ">=0.1.0"
+            "@flowfuse/nr-assistant": ">=0.1.0",
+            "@flowfuse/nr-mqtt-nodes": ">=0.1.0"
         }
     },
     "ownerType": "device",

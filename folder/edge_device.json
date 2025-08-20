@@ -1,9 +1,9 @@
 {
-    "id": "mgZNA6N1vy",
-    "name": "1.7",
-    "description": "",
-    "createdAt": "2025-08-19T19:17:56.732Z",
-    "updatedAt": "2025-08-19T19:17:56.732Z",
+    "id": "ky36BR9b3D",
+    "name": "1.8",
+    "description": "Adds operation mode, with \"RUNNING\" or \"STOPPED\", as well as tracking the time int he current state",
+    "createdAt": "2025-08-20T09:39:25.524Z",
+    "updatedAt": "2025-08-20T09:39:25.524Z",
     "flows": {
         "flows": [
             {
@@ -52,12 +52,13 @@
                     "f6f1682376566bc9",
                     "35b29e3d15640880",
                     "54eb1dc38720bc2a",
-                    "af8ee97de1400c94"
+                    "af8ee97de1400c94",
+                    "7b0f792e594ea6ac"
                 ],
                 "x": 54,
                 "y": 199,
-                "w": 1012,
-                "h": 202
+                "w": 992,
+                "h": 282
             },
             {
                 "id": "45377e20ce9b7343",
@@ -69,8 +70,8 @@
                 "broadcast": true,
                 "project": "0bcafdeb-2dbf-46f5-b91f-0e91c529832f",
                 "topic": "send",
-                "x": 970,
-                "y": 360,
+                "x": 450,
+                "y": 440,
                 "wires": []
             },
             {
@@ -122,8 +123,8 @@
                 "targetType": "msg",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 960,
-                "y": 300,
+                "x": 440,
+                "y": 400,
                 "wires": []
             },
             {
@@ -416,8 +417,7 @@
                 "y": 340,
                 "wires": [
                     [
-                        "8806f6a6b51c730e",
-                        "45377e20ce9b7343"
+                        "7b0f792e594ea6ac"
                     ]
                 ]
             },
@@ -443,49 +443,30 @@
                 ]
             },
             {
-                "id": "8e2a963750a5d91a",
-                "type": "inject",
+                "id": "7b0f792e594ea6ac",
+                "type": "function",
                 "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "Good evening",
-                "payloadType": "str",
-                "x": 370,
-                "y": 540,
+                "g": "3c33774a23201088",
+                "name": "Generate Op Mode",
+                "func": "const modes = ['RUNNING', 'STOPPED']\nconst currentMode = flow.get(\"lineOpMode\") || modes[0]\nlet newMode = currentMode\n\nconst pFailure = 1 / 300 // 1 in 5 minutes\nconst pRecovery = 1 / 90 // 1 in 1.5 minutes\n\nconst diceRoll = Math.random()\n\n// check if first time running and we need to set a shift mode start time\nif (!flow.get('startTimeInMode')) {\n    flow.set(\"startTimeInMode\", (new Date()).getTime())\n}\n\nif (currentMode === modes[0]) {\n    // simulate chance to tripping into a failure\n    if (diceRoll < pFailure) {\n        newMode = modes[0]\n        flow.set('startTimeInMode', (new Date()).getTime())    \n    }\n} else {\n    // simulate chance to recovering from failure\n    if (diceRoll < pRecovery) {\n        newMode = modes[1]\n        flow.set('startTimeInMode', (new Date()).getTime())    \n    }\n}\n\nflow.set(\"lineOpMode\", newMode)\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.opMode = flow.get(\"lineOpMode\")\nmsg.payload.data.opModeDuration = (new Date()).getTime() - flow.get(\"startTimeInMode\") // milliseconds\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 210,
+                "y": 400,
                 "wires": [
                     [
-                        "1cf668b7aeb21cb7"
+                        "8806f6a6b51c730e",
+                        "45377e20ce9b7343"
                     ]
                 ]
-            },
-            {
-                "id": "1cf668b7aeb21cb7",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 2",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 520,
-                "y": 540,
-                "wires": []
             }
         ],
         "credentials": {
-            "$": "2e5cae26ffa417f4a7c5295147895fa8SbY="
+            "$": "a82cac60da8c76be4ee14a21460e1b4cUcI="
         }
     },
     "settings": {
@@ -510,12 +491,12 @@
     },
     "ownerType": "device",
     "user": {
-        "id": "6nkvARPgRx",
-        "username": "robmarcer-flowforge",
-        "name": "Rob Marcer",
-        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
+        "id": "opaGNQge0d",
+        "username": "joepavitt",
+        "name": "Joe Pavitt",
+        "avatar": "https://app.flowfuse.com/avatar/Sm9lIFBhdml0dA",
         "admin": true,
-        "createdAt": "2022-09-12T08:25:14.762Z",
+        "createdAt": "2022-02-10T15:06:18.702Z",
         "suspended": false
     }
 }

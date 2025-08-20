@@ -1,9 +1,9 @@
 {
-    "id": "ky36BR9b3D",
-    "name": "1.8",
-    "description": "Adds operation mode, with \"RUNNING\" or \"STOPPED\", as well as tracking the time int he current state",
-    "createdAt": "2025-08-20T09:39:25.524Z",
-    "updatedAt": "2025-08-20T09:39:25.524Z",
+    "id": "wPZbxVl8zN",
+    "name": "1.9",
+    "description": "Adds simulated progress data for actual vs target",
+    "createdAt": "2025-08-20T11:11:47.348Z",
+    "updatedAt": "2025-08-20T11:11:47.348Z",
     "flows": {
         "flows": [
             {
@@ -53,7 +53,8 @@
                     "35b29e3d15640880",
                     "54eb1dc38720bc2a",
                     "af8ee97de1400c94",
-                    "7b0f792e594ea6ac"
+                    "7b0f792e594ea6ac",
+                    "3c43f86861bf7767"
                 ],
                 "x": 54,
                 "y": 199,
@@ -70,7 +71,7 @@
                 "broadcast": true,
                 "project": "0bcafdeb-2dbf-46f5-b91f-0e91c529832f",
                 "topic": "send",
-                "x": 450,
+                "x": 670,
                 "y": 440,
                 "wires": []
             },
@@ -123,7 +124,7 @@
                 "targetType": "msg",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 440,
+                "x": 660,
                 "y": 400,
                 "wires": []
             },
@@ -364,7 +365,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "Set Shift Start Time",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nmsg.payload.data['shift-start'] = shiftStart\n\nreturn msg",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\n// get current shift\nconst activeShift = flow.get('currentShift')\nif (!activeShift || shiftStart !== activeShift) {\n    flow.set('currentShift', shiftStart)\n    flow.set('lineTarget', 1000) // define our planned target for this shift\n    flow.set('lineSimEnd', 1100) // simulate the number we will actually reach by the end of the shift\n}\n\n// if no simulated end number yet set, but have already started a shift\nif (!flow.get('lineSimEnd')) {\n    flow.set('lineSimEnd', 1100) // simulate the number we will actually reach by the end of the shift\n}\n\nmsg.payload.data['shift-start'] = shiftStart\nreturn msg",
                 "outputs": 1,
                 "timeout": 0,
                 "noerr": 0,
@@ -427,7 +428,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "Set Next Shift End",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-end to be 23:30, 7:30, or 15:30, use whichever is next to happen in local time\nconst now = new Date()\nconst currentHour = now.getHours()\nconst currentMinute = now.getMinutes()\n\nlet nextShiftEnd\n\nif (currentHour < 7 || (currentHour === 7 && currentMinute < 30)) {\n    nextShiftEnd = '07:30'\n} else if (currentHour < 15 || (currentHour === 15 && currentMinute < 30)) {\n    nextShiftEnd = '15:30'\n} else {\n    nextShiftEnd = '23:30'\n}\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['shift-end'] = nextShiftEnd\n\nreturn msg",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-end to be 23:30, 7:30, or 15:30, use whichever is next to happen in local time\nconst now = new Date()\nconst currentHour = now.getHours()\nconst currentMinute = now.getMinutes()\n\nlet nextShiftEnd\n\nif (currentHour < 7 || (currentHour === 7 && currentMinute < 30)) {\n    nextShiftEnd = '07:30'\n} else if (currentHour < 15 || (currentHour === 15 && currentMinute < 30)) {\n    nextShiftEnd = '15:30'\n} else {\n    nextShiftEnd = '23:30'\n}\n\n// set flow var for active shift end to calculate simulated parts created later on\nconst activeShiftEnd = flow.get('currentShiftEnd')\nif (!activeShiftEnd || nextShiftEnd !== activeShiftEnd) {\n    flow.set('currentShiftEnd', nextShiftEnd)\n}\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['shift-end'] = nextShiftEnd\n\nreturn msg",
                 "outputs": 1,
                 "timeout": 0,
                 "noerr": 0,
@@ -459,6 +460,27 @@
                 "y": 400,
                 "wires": [
                     [
+                        "3c43f86861bf7767"
+                    ]
+                ]
+            },
+            {
+                "id": "3c43f86861bf7767",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Generate Progress",
+                "func": "const modes = ['RUNNING', 'STOPPED']\nconst currentMode = flow.get(\"lineOpMode\") || modes[0]\n\n// convert shift start/end times to a usable date object\nfunction shiftTimeToDate (time) {\n    const [hours, minutes, seconds] = time.split(':').map(Number)\n    const datetime = new Date()\n    datetime.setHours(hours, minutes, seconds, 0)\n    return datetime\n}\n\n// get simulated actual items made\nfunction getActual () {\n    const now = new Date()\n    const time = shiftTimeToDate(now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds())\n    const shiftStart = shiftTimeToDate(flow.get('currentShift') + ':0')\n    const shiftEnd = shiftTimeToDate(flow.get('currentShiftEnd') + ':0')\n    const duration = shiftEnd.getTime() - shiftStart.getTime()\n    const progress = (time.getTime() - shiftStart.getTime()) / duration\n\n    return parseInt(progress * flow.get('lineSimEnd'))\n}\n\n// Are we running? Only update if we are\nif (currentMode === modes[0]) {\n    flow.set('lineActual', getActual())\n}\n\nmsg.payload.data.progress = {\n    actual: flow.get('lineActual'),\n    target: flow.get('lineTarget')\n}\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 430,
+                "y": 400,
+                "wires": [
+                    [
                         "8806f6a6b51c730e",
                         "45377e20ce9b7343"
                     ]
@@ -466,7 +488,7 @@
             }
         ],
         "credentials": {
-            "$": "a82cac60da8c76be4ee14a21460e1b4cUcI="
+            "$": "946f42421bd2460522e70d6a2acade6f2AM="
         }
     },
     "settings": {

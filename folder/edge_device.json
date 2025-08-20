@@ -1,9 +1,9 @@
 {
-    "id": "wPZbxVl8zN",
-    "name": "1.9",
-    "description": "Adds simulated progress data for actual vs target",
-    "createdAt": "2025-08-20T11:11:47.348Z",
-    "updatedAt": "2025-08-20T11:11:47.348Z",
+    "id": "BWZg9rjYzY",
+    "name": "1.91",
+    "description": "Fix bug to switch operational modes",
+    "createdAt": "2025-08-20T11:23:14.473Z",
+    "updatedAt": "2025-08-20T11:23:14.473Z",
     "flows": {
         "flows": [
             {
@@ -449,7 +449,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "Generate Op Mode",
-                "func": "const modes = ['RUNNING', 'STOPPED']\nconst currentMode = flow.get(\"lineOpMode\") || modes[0]\nlet newMode = currentMode\n\nconst pFailure = 1 / 300 // 1 in 5 minutes\nconst pRecovery = 1 / 90 // 1 in 1.5 minutes\n\nconst diceRoll = Math.random()\n\n// check if first time running and we need to set a shift mode start time\nif (!flow.get('startTimeInMode')) {\n    flow.set(\"startTimeInMode\", (new Date()).getTime())\n}\n\nif (currentMode === modes[0]) {\n    // simulate chance to tripping into a failure\n    if (diceRoll < pFailure) {\n        newMode = modes[0]\n        flow.set('startTimeInMode', (new Date()).getTime())    \n    }\n} else {\n    // simulate chance to recovering from failure\n    if (diceRoll < pRecovery) {\n        newMode = modes[1]\n        flow.set('startTimeInMode', (new Date()).getTime())    \n    }\n}\n\nflow.set(\"lineOpMode\", newMode)\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.opMode = flow.get(\"lineOpMode\")\nmsg.payload.data.opModeDuration = (new Date()).getTime() - flow.get(\"startTimeInMode\") // milliseconds\n\nreturn msg",
+                "func": "const modes = ['RUNNING', 'STOPPED']\nconst currentMode = flow.get(\"lineOpMode\") || modes[0]\nlet newMode = currentMode\n\nconst pFailure = 1 / 300 // 1 in 5 minutes\nconst pRecovery = 1 / 90 // 1 in 1.5 minutes\n\nconst diceRoll = Math.random()\n\n// check if first time running and we need to set a shift mode start time\nif (!flow.get('startTimeInMode')) {\n    flow.set(\"startTimeInMode\", (new Date()).getTime())\n}\n\nif (currentMode === modes[0]) {\n    // simulate chance to tripping into a failure\n    if (diceRoll < pFailure) {\n        newMode = modes[1]\n        flow.set('startTimeInMode', (new Date()).getTime())    \n    }\n} else {\n    // simulate chance to recovering from failure\n    if (diceRoll < pRecovery) {\n        newMode = modes[0]\n        flow.set('startTimeInMode', (new Date()).getTime())    \n    }\n}\n\nflow.set(\"lineOpMode\", newMode)\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data.opMode = flow.get(\"lineOpMode\")\nmsg.payload.data.opModeDuration = (new Date()).getTime() - flow.get(\"startTimeInMode\") // milliseconds\n\nreturn msg",
                 "outputs": 1,
                 "timeout": 0,
                 "noerr": 0,
@@ -488,7 +488,7 @@
             }
         ],
         "credentials": {
-            "$": "946f42421bd2460522e70d6a2acade6f2AM="
+            "$": "7ee5e31fca21cbb44e4ba57ab065a25aZCk="
         }
     },
     "settings": {

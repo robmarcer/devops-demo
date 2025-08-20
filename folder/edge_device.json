@@ -1,9 +1,9 @@
 {
-    "id": "BWZg9rjYzY",
-    "name": "1.91",
-    "description": "Fix bug to switch operational modes",
-    "createdAt": "2025-08-20T11:23:14.473Z",
-    "updatedAt": "2025-08-20T11:23:14.473Z",
+    "id": "wMzlqAQkvX",
+    "name": "1.20",
+    "description": "Add simulated target for each cell",
+    "createdAt": "2025-08-20T14:28:05.061Z",
+    "updatedAt": "2025-08-20T14:28:05.061Z",
     "flows": {
         "flows": [
             {
@@ -60,6 +60,23 @@
                 "y": 199,
                 "w": 992,
                 "h": 282
+            },
+            {
+                "id": "507b7e9ce116fec1",
+                "type": "group",
+                "z": "FFF0000000000001",
+                "name": "Clear Sim Data on Deploy",
+                "style": {
+                    "label": true
+                },
+                "nodes": [
+                    "9787435fee11363e",
+                    "211d9098d3b212ad"
+                ],
+                "x": 774,
+                "y": 79,
+                "w": 372,
+                "h": 82
             },
             {
                 "id": "45377e20ce9b7343",
@@ -365,7 +382,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "Set Shift Start Time",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\n// get current shift\nconst activeShift = flow.get('currentShift')\nif (!activeShift || shiftStart !== activeShift) {\n    flow.set('currentShift', shiftStart)\n    flow.set('lineTarget', 1000) // define our planned target for this shift\n    flow.set('lineSimEnd', 1100) // simulate the number we will actually reach by the end of the shift\n}\n\n// if no simulated end number yet set, but have already started a shift\nif (!flow.get('lineSimEnd')) {\n    flow.set('lineSimEnd', 1100) // simulate the number we will actually reach by the end of the shift\n}\n\nmsg.payload.data['shift-start'] = shiftStart\nreturn msg",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nfunction generateTarget () {\n    const min = 300\n    const max = 1000\n    return Math.floor(Math.random() * (max - min)) + min\n}\n\nfunction generateSimTarget (target) {\n    const min = 0.8 * target\n    const max = 1.1 * target\n    return Math.ceil(Math.ceil(Math.random() * (max - min)) + min)\n}\n\n// get current shift\nconst activeShift = flow.get('currentShift')\nif (!activeShift || shiftStart !== activeShift) {\n    flow.set('currentShift', shiftStart)\n    const target = generateTarget()\n    flow.set('lineTarget', target) // define our planned target for this shift\n    flow.set('lineSimEnd', generateSimTarget(target)) // simulate the number we will actually reach by the end of the shift\n}\n\n// if no simulated end number yet set, but have already started a shift\nif (!flow.get('lineSimEnd')) {\n    flow.set('lineSimEnd', flow.get('lineTarget')) // simulate the number we will actually reach by the end of the shift\n}\n\nmsg.payload.data['shift-start'] = shiftStart\nreturn msg",
                 "outputs": 1,
                 "timeout": 0,
                 "noerr": 0,
@@ -485,10 +502,59 @@
                         "45377e20ce9b7343"
                     ]
                 ]
+            },
+            {
+                "id": "9787435fee11363e",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "g": "507b7e9ce116fec1",
+                "name": "On Deploy",
+                "props": [],
+                "repeat": "",
+                "crontab": "",
+                "once": true,
+                "onceDelay": 0.1,
+                "topic": "",
+                "x": 890,
+                "y": 120,
+                "wires": [
+                    [
+                        "211d9098d3b212ad"
+                    ]
+                ]
+            },
+            {
+                "id": "211d9098d3b212ad",
+                "type": "change",
+                "z": "FFF0000000000001",
+                "g": "507b7e9ce116fec1",
+                "name": "Clear Cache",
+                "rules": [
+                    {
+                        "t": "delete",
+                        "p": "currentShift",
+                        "pt": "flow"
+                    },
+                    {
+                        "t": "delete",
+                        "p": "currentShiftEnd",
+                        "pt": "flow"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": false,
+                "x": 1050,
+                "y": 120,
+                "wires": [
+                    []
+                ]
             }
         ],
         "credentials": {
-            "$": "7ee5e31fca21cbb44e4ba57ab065a25aZCk="
+            "$": "86b3cb012b4a02324df7cfefc62c0e79X1g="
         }
     },
     "settings": {

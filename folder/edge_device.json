@@ -1,9 +1,9 @@
 {
-    "id": "wMzlqAQkvX",
-    "name": "1.20",
-    "description": "Add simulated target for each cell",
-    "createdAt": "2025-08-20T14:28:05.061Z",
-    "updatedAt": "2025-08-20T14:28:05.061Z",
+    "id": "rNzKPA9Nv8",
+    "name": "1.21",
+    "description": "Improved probability for scheduling on target",
+    "createdAt": "2025-08-20T14:54:22.073Z",
+    "updatedAt": "2025-08-20T14:54:22.073Z",
     "flows": {
         "flows": [
             {
@@ -382,7 +382,7 @@
                 "z": "FFF0000000000001",
                 "g": "3c33774a23201088",
                 "name": "Set Shift Start Time",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nfunction generateTarget () {\n    const min = 300\n    const max = 1000\n    return Math.floor(Math.random() * (max - min)) + min\n}\n\nfunction generateSimTarget (target) {\n    const min = 0.8 * target\n    const max = 1.1 * target\n    return Math.ceil(Math.ceil(Math.random() * (max - min)) + min)\n}\n\n// get current shift\nconst activeShift = flow.get('currentShift')\nif (!activeShift || shiftStart !== activeShift) {\n    flow.set('currentShift', shiftStart)\n    const target = generateTarget()\n    flow.set('lineTarget', target) // define our planned target for this shift\n    flow.set('lineSimEnd', generateSimTarget(target)) // simulate the number we will actually reach by the end of the shift\n}\n\n// if no simulated end number yet set, but have already started a shift\nif (!flow.get('lineSimEnd')) {\n    flow.set('lineSimEnd', flow.get('lineTarget')) // simulate the number we will actually reach by the end of the shift\n}\n\nmsg.payload.data['shift-start'] = shiftStart\nreturn msg",
+                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nfunction generateTarget () {\n    const min = 300\n    const max = 1000\n    return Math.floor(Math.random() * (max - min)) + min\n}\n\nfunction randomBetween (min, max) {\n    return Math.ceil((Math.random() * (max - min)) + min)\n}\n\nfunction generateSimTarget (target) {\n    const diceRoll = Math.random()\n    const pBehindSchedule = 0.2 // 20% of cells will be behind schedule\n    if (diceRoll < pBehindSchedule) {\n        return randomBetween(0.9 * target, target - 1)\n    } else {\n        return randomBetween(target, 1.1 * target)\n    }\n}\n\n// get current shift\nconst activeShift = flow.get('currentShift')\nif (!activeShift || shiftStart !== activeShift) {\n    flow.set('currentShift', shiftStart)\n    const target = generateTarget()\n    flow.set('lineTarget', target) // define our planned target for this shift\n    flow.set('lineSimEnd', generateSimTarget(target)) // simulate the number we will actually reach by the end of the shift\n}\n\n// if no simulated end number yet set, but have already started a shift\nif (!flow.get('lineSimEnd')) {\n    flow.set('lineSimEnd', flow.get('lineTarget')) // simulate the number we will actually reach by the end of the shift\n}\n\nmsg.payload.data['shift-start'] = shiftStart\nreturn msg",
                 "outputs": 1,
                 "timeout": 0,
                 "noerr": 0,
@@ -554,7 +554,7 @@
             }
         ],
         "credentials": {
-            "$": "86b3cb012b4a02324df7cfefc62c0e79X1g="
+            "$": "f6e90181cf234d97a0ca32ed2e62ade0QDw="
         }
     },
     "settings": {

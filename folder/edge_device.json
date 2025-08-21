@@ -1,9 +1,9 @@
 {
-    "id": "rNzKPA9Nv8",
-    "name": "1.21",
-    "description": "Improved probability for scheduling on target",
-    "createdAt": "2025-08-20T14:54:22.073Z",
-    "updatedAt": "2025-08-20T14:54:22.073Z",
+    "id": "bpZ5PkVmvk",
+    "name": "1.22",
+    "description": "Move debug node",
+    "createdAt": "2025-08-21T08:14:45.046Z",
+    "updatedAt": "2025-08-21T08:14:45.046Z",
     "flows": {
         "flows": [
             {
@@ -141,7 +141,7 @@
                 "targetType": "msg",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 660,
+                "x": 800,
                 "y": 400,
                 "wires": []
             },
@@ -554,7 +554,7 @@
             }
         ],
         "credentials": {
-            "$": "f6e90181cf234d97a0ca32ed2e62ade0QDw="
+            "$": "36fb28b9018ae372505d1a58a6762d2aX0s="
         }
     },
     "settings": {

@@ -1,9 +1,9 @@
 {
-    "id": "bpZ5PkVmvk",
-    "name": "1.22",
-    "description": "Move debug node",
-    "createdAt": "2025-08-21T08:14:45.046Z",
-    "updatedAt": "2025-08-21T08:14:45.046Z",
+    "id": "2Q3xao7dzq",
+    "name": "1.23",
+    "description": "",
+    "createdAt": "2025-09-03T16:05:09.286Z",
+    "updatedAt": "2025-09-03T16:05:09.286Z",
     "flows": {
         "flows": [
             {
@@ -554,7 +554,7 @@
             }
         ],
         "credentials": {
-            "$": "283dc4a7e6bd59ab6e5b5190da083213wDE="
+            "$": "de0477657e031bd383fa40ff7c0fe4f6sf4="
         }
     },
     "settings": {
@@ -564,7 +564,8 @@
                     "@flowfuse/nr-project-nodes": "~0.7.5",
                     "node-red-node-random": "~0.4.1",
                     "@flowfuse/nr-assistant": ">=0.1.0",
-                    "@flowfuse/nr-mqtt-nodes": ">=0.1.0"
+                    "@flowfuse/nr-mqtt-nodes": ">=0.1.0",
+                    "@flowfuse/nr-tables-nodes": ">=0.1.0"
                 }
             }
         },
@@ -574,17 +575,18 @@
             "node-red": "4.0.8",
             "node-red-node-random": "~0.4.1",
             "@flowfuse/nr-assistant": ">=0.1.0",
-            "@flowfuse/nr-mqtt-nodes": ">=0.1.0"
+            "@flowfuse/nr-mqtt-nodes": ">=0.1.0",
+            "@flowfuse/nr-tables-nodes": ">=0.1.0"
         }
     },
     "ownerType": "device",
     "user": {
-        "id": "opaGNQge0d",
-        "username": "joepavitt",
-        "name": "Joe Pavitt",
-        "avatar": "https://app.flowfuse.com/avatar/Sm9lIFBhdml0dA",
+        "id": "6nkvARPgRx",
+        "username": "robmarcer-flowforge",
+        "name": "Rob Marcer",
+        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
         "admin": true,
-        "createdAt": "2022-02-10T15:06:18.702Z",
+        "createdAt": "2022-09-12T08:25:14.762Z",
         "suspended": false
     }
 }

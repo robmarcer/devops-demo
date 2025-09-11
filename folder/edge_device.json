@@ -1,9 +1,9 @@
 {
-    "id": "dLZL6MxozR",
-    "name": "1.25",
-    "description": "",
-    "createdAt": "2025-09-09T12:56:19.902Z",
-    "updatedAt": "2025-09-09T12:56:19.902Z",
+    "id": "YJZ7P5xR3k",
+    "name": "1.26",
+    "description": "Flows\nAdded a new comment node titled 'Release notes for 2.5' with note 'Rob added hello world example'. Added an inject node that sends the string 'Hello world' on trigger. Added a debug node named 'debug 2' to display the payload from the inject node.",
+    "createdAt": "2025-09-11T11:50:51.696Z",
+    "updatedAt": "2025-09-11T11:50:51.696Z",
     "flows": {
         "flows": [
             {
@@ -626,10 +626,61 @@
                         "f6f1682376566bc9"
                     ]
                 ]
+            },
+            {
+                "id": "788e835d9ce44750",
+                "type": "comment",
+                "z": "FFF0000000000001",
+                "name": "Release notes for 2.5",
+                "info": "Rob added hello world example",
+                "x": 200,
+                "y": 600,
+                "wires": []
+            },
+            {
+                "id": "0e9a73e384df0ea6",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "Hello world",
+                "payloadType": "str",
+                "x": 160,
+                "y": 700,
+                "wires": [
+                    [
+                        "36c6ca41811732cb"
+                    ]
+                ]
+            },
+            {
+                "id": "36c6ca41811732cb",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 2",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 320,
+                "y": 700,
+                "wires": []
             }
         ],
         "credentials": {
-            "$": "06ba4a6c0751cd0a5bf7ec36ea1aac93PE4="
+            "$": "8e894565deceb69bca222327c396ff9dXmo="
         }
     },
     "settings": {

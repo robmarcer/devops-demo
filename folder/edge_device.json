@@ -1,9 +1,9 @@
 {
-    "id": "YJZ7P5xR3k",
-    "name": "1.26",
-    "description": "Flows\nAdded a new comment node titled 'Release notes for 2.5' with note 'Rob added hello world example'. Added an inject node that sends the string 'Hello world' on trigger. Added a debug node named 'debug 2' to display the payload from the inject node.",
-    "createdAt": "2025-09-11T11:50:51.696Z",
-    "updatedAt": "2025-09-11T11:50:51.696Z",
+    "id": "OjzmqLVkza",
+    "name": "1.29",
+    "description": "Flows\nAdded an inject node that outputs the string \"Hello Demo\" on trigger, connected to a debug node named \"debug 2\" which logs the payload to the sidebar. No other nodes or flows were present before.",
+    "createdAt": "2025-09-26T08:21:43.412Z",
+    "updatedAt": "2025-09-26T08:21:43.412Z",
     "flows": {
         "flows": [
             {
@@ -628,17 +628,7 @@
                 ]
             },
             {
-                "id": "788e835d9ce44750",
-                "type": "comment",
-                "z": "FFF0000000000001",
-                "name": "Release notes for 2.5",
-                "info": "Rob added hello world example",
-                "x": 200,
-                "y": 600,
-                "wires": []
-            },
-            {
-                "id": "0e9a73e384df0ea6",
+                "id": "132e9b6c11264f4c",
                 "type": "inject",
                 "z": "FFF0000000000001",
                 "name": "",
@@ -652,18 +642,18 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello world",
+                "payload": "Hello Demo",
                 "payloadType": "str",
-                "x": 160,
-                "y": 700,
+                "x": 370,
+                "y": 540,
                 "wires": [
                     [
-                        "36c6ca41811732cb"
+                        "cf18fc48055bb482"
                     ]
                 ]
             },
             {
-                "id": "36c6ca41811732cb",
+                "id": "cf18fc48055bb482",
                 "type": "debug",
                 "z": "FFF0000000000001",
                 "name": "debug 2",
@@ -674,13 +664,13 @@
                 "complete": "false",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 320,
-                "y": 700,
+                "x": 520,
+                "y": 540,
                 "wires": []
             }
         ],
         "credentials": {
-            "$": "8e894565deceb69bca222327c396ff9dXmo="
+            "$": "a83d90f832155f61272f75a66d4f0e58wIU="
         }
     },
     "settings": {
@@ -715,6 +705,7 @@
         "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
         "admin": true,
         "createdAt": "2022-09-12T08:25:14.762Z",
-        "suspended": false
+        "suspended": false,
+        "SSOGroups": []
     }
 }

@@ -1,9 +1,9 @@
 {
-    "id": "OjzmqLVkza",
-    "name": "1.29",
-    "description": "Flows\nAdded an inject node that outputs the string \"Hello Demo\" on trigger, connected to a debug node named \"debug 2\" which logs the payload to the sidebar. No other nodes or flows were present before.",
-    "createdAt": "2025-09-26T08:21:43.412Z",
-    "updatedAt": "2025-09-26T08:21:43.412Z",
+    "id": "wd3R757bzr",
+    "name": "1.30",
+    "description": "Overview \nMinor edit to a debug node's output message and position.\n\nFlows\nChanged the debug node payload from \"Hello Demo\" to \"Hello world\". Also adjusted the node's x-position slightly from 370 to 360.",
+    "createdAt": "2025-10-01T14:48:15.898Z",
+    "updatedAt": "2025-10-01T14:48:15.898Z",
     "flows": {
         "flows": [
             {
@@ -642,9 +642,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Demo",
+                "payload": "Hello world",
                 "payloadType": "str",
-                "x": 370,
+                "x": 360,
                 "y": 540,
                 "wires": [
                     [
@@ -670,7 +670,7 @@
             }
         ],
         "credentials": {
-            "$": "4207292f5247bfe6ef09e401ed6db1efBFs="
+            "$": "dae4be45df484ae30099b33bd955ea5cTSM="
         }
     },
     "settings": {

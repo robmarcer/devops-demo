@@ -1,9 +1,9 @@
 {
-    "id": "rgvOen2A3R",
-    "name": "1.34",
-    "description": "Overview \nUpdated the greeting message in the final node of the flow.\n\nFlows\nChanged the payload of the last node from 'Hello Greg' to 'Hello Tuesday'.",
-    "createdAt": "2025-10-07T13:21:06.334Z",
-    "updatedAt": "2025-10-07T13:21:06.334Z",
+    "id": "0GvDV4DV3E",
+    "name": "1.36",
+    "description": "Overview \nUpdated a single message node payload and position in the flow.\n\nFlows\nChanged the payload of the message node from \"Hello BBC\" to \"Hello Thursday\" and adjusted its x position from 360 to 380.",
+    "createdAt": "2025-10-16T12:39:14.963Z",
+    "updatedAt": "2025-10-16T12:39:14.963Z",
     "flows": {
         "flows": [
             {
@@ -642,9 +642,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Tuesday",
+                "payload": "Hello Thursday",
                 "payloadType": "str",
-                "x": 370,
+                "x": 380,
                 "y": 580,
                 "wires": [
                     [
@@ -664,13 +664,13 @@
                 "complete": "false",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 580,
+                "x": 540,
                 "y": 580,
                 "wires": []
             }
         ],
         "credentials": {
-            "$": "44b3cc9d0a8360cf00c232f585d85c20GFw="
+            "$": "faeef246a4544f19a3a483e8614596f6fZw="
         }
     },
     "settings": {
@@ -681,6 +681,7 @@
                     "@flowfuse/nr-mqtt-nodes": ">=0.1.0",
                     "@flowfuse/nr-project-nodes": "~0.7.5",
                     "@flowfuse/nr-tables-nodes": ">=0.1.0",
+                    "node-red-contrib-cip-ethernet-ip": "~1.1.3",
                     "node-red-contrib-ip": "~1.0.1",
                     "node-red-node-random": "~0.4.1"
                 }
@@ -693,6 +694,7 @@
             "@flowfuse/nr-project-nodes": "~0.7.5",
             "@flowfuse/nr-tables-nodes": ">=0.1.0",
             "node-red": "4.0.8",
+            "node-red-contrib-cip-ethernet-ip": "~1.1.3",
             "node-red-contrib-ip": "~1.0.1",
             "node-red-node-random": "~0.4.1"
         }

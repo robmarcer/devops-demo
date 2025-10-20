@@ -1,9 +1,9 @@
 {
-    "id": "0GvDV4DV3E",
-    "name": "1.36",
-    "description": "Overview \nUpdated a single message node payload and position in the flow.\n\nFlows\nChanged the payload of the message node from \"Hello BBC\" to \"Hello Thursday\" and adjusted its x position from 360 to 380.",
-    "createdAt": "2025-10-16T12:39:14.963Z",
-    "updatedAt": "2025-10-16T12:39:14.963Z",
+    "id": "LRzBbmNWzp",
+    "name": "1.37",
+    "description": "Flows\nChanged the payload of the message from \"Hello Thursday\" to \"Hello Monday\" and adjusted the x-coordinate from 380 to 370 in the last node of the flow.",
+    "createdAt": "2025-10-20T14:00:57.225Z",
+    "updatedAt": "2025-10-20T14:00:57.225Z",
     "flows": {
         "flows": [
             {
@@ -642,9 +642,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Thursday",
+                "payload": "Hello Monday",
                 "payloadType": "str",
-                "x": 380,
+                "x": 370,
                 "y": 580,
                 "wires": [
                     [
@@ -670,7 +670,7 @@
             }
         ],
         "credentials": {
-            "$": "faeef246a4544f19a3a483e8614596f6fZw="
+            "$": "317885b461a35583513b2a3c377e65d0YBc="
         }
     },
     "settings": {

@@ -1,9 +1,9 @@
 {
-    "id": "YJZ7WXbDZk",
-    "name": "1.42",
-    "description": "Overview \nNode-RED core module updated and a single node's payload message changed to reflect new content.\n\nFlows\nUpdated the last node's payload from 'Hello November' to 'Hello Wednesday'.\n\nModules\nUpgraded Node-RED module from version 4.0.8 to latest.",
-    "createdAt": "2025-11-06T13:56:50.308Z",
-    "updatedAt": "2025-11-06T13:56:50.308Z",
+    "id": "wPZbaQ4PvN",
+    "name": "1.44",
+    "description": "Flows\nChanged payload in one node from 'Hello Wednesday' to 'Hello Friday!'. Also, nodes were repositioned horizontally (x coordinates changed from 380 to 370 and from 740 to 540 respectively). No other changes to node properties.",
+    "createdAt": "2025-11-16T21:35:15.367Z",
+    "updatedAt": "2025-11-16T21:35:15.367Z",
     "flows": {
         "flows": [
             {
@@ -642,9 +642,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Wednesday",
+                "payload": "Hello Friday!",
                 "payloadType": "str",
-                "x": 380,
+                "x": 370,
                 "y": 580,
                 "wires": [
                     [
@@ -670,7 +670,7 @@
             }
         ],
         "credentials": {
-            "$": "ffe02bb3266a658428aa5b2db3dcb7bdLMg="
+            "$": "b421ef2f233fc3a1f878da3dec1679564mM="
         }
     },
     "settings": {
@@ -701,12 +701,12 @@
     },
     "ownerType": "device",
     "user": {
-        "id": "6nkvARPgRx",
-        "username": "robmarcer-flowforge",
-        "name": "Rob Marcer",
-        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
-        "admin": true,
-        "createdAt": "2022-09-12T08:25:14.762Z",
+        "id": "PVGEb62me8",
+        "username": "dgatti0213",
+        "name": "Drew Gatti",
+        "avatar": "https://app.flowfuse.com/avatar/RHJldyBHYXR0aQ",
+        "admin": false,
+        "createdAt": "2025-10-27T18:07:40.333Z",
         "suspended": false,
         "SSOGroups": []
     }

@@ -1,9 +1,9 @@
 {
-    "id": "wd3RpjXmvr",
-    "name": "1.51",
-    "description": "Overview \nUpdated the message payload text to reflect the new day.\n\nFlows\nChanged the payload of the last node from 'Hello Monday' to 'Hello Tuesday'. No other nodes or flows were modified.",
-    "createdAt": "2025-12-02T10:33:07.262Z",
-    "updatedAt": "2025-12-02T10:33:07.262Z",
+    "id": "LRzBPea6Zp",
+    "name": "1.52",
+    "description": "Overview \nIntroduced a new test flow to inject a string payload and output it to debug.\n\nFlows\nAdded a new flow with an inject node named 'inject' that outputs the string 'Hello Rob' connected to a debug node named 'debug 3'.",
+    "createdAt": "2025-12-02T12:31:17.408Z",
+    "updatedAt": "2025-12-02T12:31:17.408Z",
     "flows": {
         "flows": [
             {
@@ -677,6 +677,47 @@
                 "wires": []
             },
             {
+                "id": "e5f07beebf479211",
+                "type": "inject",
+                "z": "FFF0000000000001",
+                "name": "",
+                "props": [
+                    {
+                        "p": "payload"
+                    }
+                ],
+                "repeat": "",
+                "crontab": "",
+                "once": false,
+                "onceDelay": 0.1,
+                "topic": "",
+                "payload": "Hello Rob",
+                "payloadType": "str",
+                "x": 360,
+                "y": 680,
+                "wires": [
+                    [
+                        "1ce7e709a9e2278d"
+                    ]
+                ]
+            },
+            {
+                "id": "1ce7e709a9e2278d",
+                "type": "debug",
+                "z": "FFF0000000000001",
+                "name": "debug 3",
+                "active": true,
+                "tosidebar": true,
+                "console": false,
+                "tostatus": false,
+                "complete": "false",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": 580,
+                "y": 680,
+                "wires": []
+            },
+            {
                 "id": "8a94bc69ae956810",
                 "type": "exec",
                 "z": "8c38688d661bf1e3",
@@ -921,7 +962,7 @@
             }
         ],
         "credentials": {
-            "$": "7249e02b233a70ed97b819132798947fWCc="
+            "$": "867241c613b634a5a3808680e0a6cd65yKo="
         }
     },
     "settings": {

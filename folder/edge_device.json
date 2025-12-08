@@ -1,9 +1,9 @@
 {
-    "id": "LRzBPea6Zp",
-    "name": "1.52",
-    "description": "Overview \nIntroduced a new test flow to inject a string payload and output it to debug.\n\nFlows\nAdded a new flow with an inject node named 'inject' that outputs the string 'Hello Rob' connected to a debug node named 'debug 3'.",
-    "createdAt": "2025-12-02T12:31:17.408Z",
-    "updatedAt": "2025-12-02T12:31:17.408Z",
+    "id": "wPZbaDp5vN",
+    "name": "1.53",
+    "description": "Overview \nRefined payload values and cleaned up flow nodes for better clarity and functionality.\n\nFlows\nChanged a payload from 'Hello Tuesday' to 'Hello Monday'. Updated the inject node to send 'ls context/global' command to the exec node. Added or modified debug nodes for better output visibility, including debug 7, debug 8, debug 9, and debug 10. Adjusted the global context setting via a change node to set 'test' string to global persistent payload. Removed some redundant or unnamed nodes, refined inject nodes to better handle payload and topic properties, and ensured exec nodes properly handle payload as command input.",
+    "createdAt": "2025-12-08T11:00:35.798Z",
+    "updatedAt": "2025-12-08T11:00:35.798Z",
     "flows": {
         "flows": [
             {
@@ -650,9 +650,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Tuesday",
+                "payload": "Hello Monday",
                 "payloadType": "str",
-                "x": 370,
+                "x": 390,
                 "y": 580,
                 "wires": [
                     [
@@ -674,47 +674,6 @@
                 "statusType": "auto",
                 "x": 580,
                 "y": 580,
-                "wires": []
-            },
-            {
-                "id": "e5f07beebf479211",
-                "type": "inject",
-                "z": "FFF0000000000001",
-                "name": "",
-                "props": [
-                    {
-                        "p": "payload"
-                    }
-                ],
-                "repeat": "",
-                "crontab": "",
-                "once": false,
-                "onceDelay": 0.1,
-                "topic": "",
-                "payload": "Hello Rob",
-                "payloadType": "str",
-                "x": 360,
-                "y": 680,
-                "wires": [
-                    [
-                        "1ce7e709a9e2278d"
-                    ]
-                ]
-            },
-            {
-                "id": "1ce7e709a9e2278d",
-                "type": "debug",
-                "z": "FFF0000000000001",
-                "name": "debug 3",
-                "active": true,
-                "tosidebar": true,
-                "console": false,
-                "tostatus": false,
-                "complete": "false",
-                "statusVal": "",
-                "statusType": "auto",
-                "x": 580,
-                "y": 680,
                 "wires": []
             },
             {
@@ -962,7 +921,7 @@
             }
         ],
         "credentials": {
-            "$": "867241c613b634a5a3808680e0a6cd65yKo="
+            "$": "191e24b0ec1fae83f3b0341d81de0777T5w="
         }
     },
     "settings": {

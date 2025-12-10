@@ -1,9 +1,9 @@
 {
-    "id": "wPZbaDp5vN",
-    "name": "1.53",
-    "description": "Overview \nRefined payload values and cleaned up flow nodes for better clarity and functionality.\n\nFlows\nChanged a payload from 'Hello Tuesday' to 'Hello Monday'. Updated the inject node to send 'ls context/global' command to the exec node. Added or modified debug nodes for better output visibility, including debug 7, debug 8, debug 9, and debug 10. Adjusted the global context setting via a change node to set 'test' string to global persistent payload. Removed some redundant or unnamed nodes, refined inject nodes to better handle payload and topic properties, and ensured exec nodes properly handle payload as command input.",
-    "createdAt": "2025-12-08T11:00:35.798Z",
-    "updatedAt": "2025-12-08T11:00:35.798Z",
+    "id": "41ZWqRX5z6",
+    "name": "1.54",
+    "description": "Flows\nChanged the payload of the last node from 'Hello Monday' to 'Hello Tuesday'. No other changes in the flows.",
+    "createdAt": "2025-12-10T03:17:16.851Z",
+    "updatedAt": "2025-12-10T03:17:16.851Z",
     "flows": {
         "flows": [
             {
@@ -650,7 +650,7 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Monday",
+                "payload": "Hello Tuesday",
                 "payloadType": "str",
                 "x": 390,
                 "y": 580,
@@ -921,7 +921,7 @@
             }
         ],
         "credentials": {
-            "$": "191e24b0ec1fae83f3b0341d81de0777T5w="
+            "$": "97141dba0c02bba0b21576dedb85e9ffJ6M="
         }
     },
     "settings": {
@@ -952,12 +952,12 @@
     },
     "ownerType": "device",
     "user": {
-        "id": "6nkvARPgRx",
-        "username": "robmarcer-flowforge",
-        "name": "Rob Marcer",
-        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
-        "admin": true,
-        "createdAt": "2022-09-12T08:25:14.762Z",
+        "id": "PVGEb62me8",
+        "username": "dgatti0213",
+        "name": "Drew Gatti",
+        "avatar": "https://app.flowfuse.com/avatar/RHJldyBHYXR0aQ",
+        "admin": false,
+        "createdAt": "2025-10-27T18:07:40.333Z",
         "suspended": false,
         "SSOGroups": []
     }

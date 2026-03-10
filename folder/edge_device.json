@@ -1,9 +1,9 @@
 {
-    "id": "BovA0oyGz0",
-    "name": "1.63",
-    "description": "",
-    "createdAt": "2026-03-10T09:55:40.471Z",
-    "updatedAt": "2026-03-10T09:55:40.471Z",
+    "id": "7VZY9RepZe",
+    "name": "1.65",
+    "description": "Overview \nSeparated shift start and end time logic into two dedicated function nodes with improved flow context management; minor timing adjustment in position selector; no changes to operational mode or progress generation logic.\n\nFlows\nAdded new function nodes 'Set Shift Start Time' and 'Set Next Shift End' to set shift start times (00:00, 08:00, 16:00) and next shift end times (23:30, 7:30, 15:30) based on local time, replacing the previous combined 'Shift start and end times' function. The new functions also update flow context variables to track current shift and shift end for use in other nodes.\n\nThe 'Gradual Cycle Time Setter' node's x-position was adjusted but its logic remains unchanged.\n\nThe 'Timed Position Selector' function's time interval was corrected from 2 minutes to 30 seconds for changing the recipe position.\n\nA new link connection was added from 'Set Shift Start Time' to 'Set Next Shift End'.\n\nOverall, the flow was reorganized to separate shift start and end time calculations into distinct functions for better clarity and state management.",
+    "createdAt": "2026-03-10T14:38:11.418Z",
+    "updatedAt": "2026-03-10T14:38:11.418Z",
     "flows": {
         "flows": [
             {
@@ -642,9 +642,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Tuesday",
+                "payload": "Hello VELUX",
                 "payloadType": "str",
-                "x": 390,
+                "x": 350,
                 "y": 580,
                 "wires": [
                     [
@@ -670,7 +670,7 @@
             }
         ],
         "credentials": {
-            "$": "d683a4e219aa5b53e6f56ec96c9fe65071s="
+            "$": "8ea8b52d60bc3399323984dc15a49adccIM="
         }
     },
     "settings": {
@@ -701,12 +701,12 @@
     },
     "ownerType": "device",
     "user": {
-        "id": "6nkvARPgRx",
-        "username": "robmarcer-flowforge",
-        "name": "Rob Marcer",
-        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
-        "admin": true,
-        "createdAt": "2022-09-12T08:25:14.762Z",
+        "id": "PVGEb62me8",
+        "username": "dgatti0213",
+        "name": "Drew Gatti",
+        "avatar": "https://app.flowfuse.com/avatar/RHJldyBHYXR0aQ",
+        "admin": false,
+        "createdAt": "2025-10-27T18:07:40.333Z",
         "suspended": false,
         "SSOGroups": []
     }

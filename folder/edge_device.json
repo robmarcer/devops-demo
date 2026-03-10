@@ -1,9 +1,9 @@
 {
-    "id": "BovA0oyGz0",
-    "name": "1.63",
-    "description": "",
-    "createdAt": "2026-03-10T09:55:40.471Z",
-    "updatedAt": "2026-03-10T09:55:40.471Z",
+    "id": "VB317VmDvP",
+    "name": "1.64",
+    "description": "Overview \nConsolidated shift time setting into one function with updated shift time ranges and adjusted timing in position selector function from 2 minutes to 30 seconds.\n\nFlows\nReplaced the separate \"Set Shift Start Time\" and \"Set Next Shift End\" functions with a single \"Shift start and end times\" function that sets both shift start and end times based on current time, covering three shifts: 00:00-07:30, 08:00-15:30, and 16:00-23:30. This consolidates shift time management and updates flow context accordingly.\n\nIn \"Timed Position Selector\", corrected the comment to reflect the actual timing (30 seconds instead of 2 minutes) for changing the selected position from the list ['front-right', 'front-left', 'rear-left', 'rear-right', 'rear'].",
+    "createdAt": "2026-03-10T11:04:17.400Z",
+    "updatedAt": "2026-03-10T11:04:17.400Z",
     "flows": {
         "flows": [
             {
@@ -49,20 +49,19 @@
                     "e32534568c3d2411",
                     "b9d13477ac2df90d",
                     "b6e0f35920e86dd2",
-                    "f6f1682376566bc9",
                     "35b29e3d15640880",
                     "54eb1dc38720bc2a",
-                    "af8ee97de1400c94",
                     "7b0f792e594ea6ac",
                     "3c43f86861bf7767",
                     "0a14e33e68ea6d13",
                     "27cabe4b443b1702",
                     "9d3da8aa1af3c9e8",
-                    "26c9fd909d1e363e"
+                    "26c9fd909d1e363e",
+                    "1ed288f87f20c4ea"
                 ],
                 "x": 44,
                 "y": 199,
-                "w": 982,
+                "w": 932,
                 "h": 262
             },
             {
@@ -251,7 +250,7 @@
                 "initialize": "",
                 "finalize": "",
                 "libs": [],
-                "x": 630,
+                "x": 470,
                 "y": 300,
                 "wires": [
                     [
@@ -381,27 +380,6 @@
                 ]
             },
             {
-                "id": "f6f1682376566bc9",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Set Shift Start Time",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-start to be 00:00, 08:00, or 16:00, use whichever as past most recently to local time.\nconst now = new Date()\nconst currentHour = now.getHours()\n\nlet shiftStart = '00:00'\n\nif (currentHour >= 16) {\n    shiftStart = '16:00'\n} else if (currentHour >= 8) {\n    shiftStart = '08:00'\n}\n\nfunction generateTarget () {\n    const min = 300\n    const max = 1000\n    return Math.floor(Math.random() * (max - min)) + min\n}\n\nfunction randomBetween (min, max) {\n    return Math.ceil((Math.random() * (max - min)) + min)\n}\n\nfunction generateSimTarget (target) {\n    const diceRoll = Math.random()\n    const pBehindSchedule = 0.2 // 20% of cells will be behind schedule\n    if (diceRoll < pBehindSchedule) {\n        return randomBetween(0.9 * target, target - 1)\n    } else {\n        return randomBetween(target, 1.1 * target)\n    }\n}\n\n// get current shift\nconst activeShift = flow.get('currentShift')\nif (!activeShift || shiftStart !== activeShift) {\n    flow.set('currentShift', shiftStart)\n    const target = generateTarget()\n    flow.set('lineTarget', target) // define our planned target for this shift\n    flow.set('lineSimEnd', generateSimTarget(target)) // simulate the number we will actually reach by the end of the shift\n}\n\n// if no simulated end number yet set, but have already started a shift\nif (!flow.get('lineSimEnd')) {\n    flow.set('lineSimEnd', flow.get('lineTarget')) // simulate the number we will actually reach by the end of the shift\n}\n\nmsg.payload.data['shift-start'] = shiftStart\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 210,
-                "y": 300,
-                "wires": [
-                    [
-                        "af8ee97de1400c94"
-                    ]
-                ]
-            },
-            {
                 "id": "35b29e3d15640880",
                 "type": "function",
                 "z": "FFF0000000000001",
@@ -414,7 +392,7 @@
                 "initialize": "",
                 "finalize": "",
                 "libs": [],
-                "x": 880,
+                "x": 720,
                 "y": 300,
                 "wires": [
                     [
@@ -440,27 +418,6 @@
                 "wires": [
                     [
                         "7b0f792e594ea6ac"
-                    ]
-                ]
-            },
-            {
-                "id": "af8ee97de1400c94",
-                "type": "function",
-                "z": "FFF0000000000001",
-                "g": "3c33774a23201088",
-                "name": "Set Next Shift End",
-                "func": "//$PROMPT: Create a function which sets msg.payload.data.shift-end to be 23:30, 7:30, or 15:30, use whichever is next to happen in local time\nconst now = new Date()\nconst currentHour = now.getHours()\nconst currentMinute = now.getMinutes()\n\nlet nextShiftEnd\n\nif (currentHour < 7 || (currentHour === 7 && currentMinute < 30)) {\n    nextShiftEnd = '07:30'\n} else if (currentHour < 15 || (currentHour === 15 && currentMinute < 30)) {\n    nextShiftEnd = '15:30'\n} else {\n    nextShiftEnd = '23:30'\n}\n\n// set flow var for active shift end to calculate simulated parts created later on\nconst activeShiftEnd = flow.get('currentShiftEnd')\nif (!activeShiftEnd || nextShiftEnd !== activeShiftEnd) {\n    flow.set('currentShiftEnd', nextShiftEnd)\n}\n\nmsg.payload.data = msg.payload.data || {}\nmsg.payload.data['shift-end'] = nextShiftEnd\n\nreturn msg",
-                "outputs": 1,
-                "timeout": 0,
-                "noerr": 0,
-                "initialize": "",
-                "finalize": "",
-                "libs": [],
-                "x": 410,
-                "y": 300,
-                "wires": [
-                    [
-                        "b9d13477ac2df90d"
                     ]
                 ]
             },
@@ -623,7 +580,7 @@
                 "y": 300,
                 "wires": [
                     [
-                        "f6f1682376566bc9"
+                        "1ed288f87f20c4ea"
                     ]
                 ]
             },
@@ -644,8 +601,8 @@
                 "topic": "",
                 "payload": "Hello Tuesday",
                 "payloadType": "str",
-                "x": 390,
-                "y": 580,
+                "x": 210,
+                "y": 620,
                 "wires": [
                     [
                         "cf18fc48055bb482"
@@ -664,13 +621,34 @@
                 "complete": "false",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": 580,
-                "y": 580,
+                "x": 360,
+                "y": 620,
                 "wires": []
+            },
+            {
+                "id": "1ed288f87f20c4ea",
+                "type": "function",
+                "z": "FFF0000000000001",
+                "g": "3c33774a23201088",
+                "name": "Shift start and end times",
+                "func": "const now = new Date()\nconst currentHour = now.getHours()\nconst currentMinute = now.getMinutes()\n\nlet shiftStart, shiftEnd\n\nif ((currentHour === 0 && currentMinute >= 0) || (currentHour < 7) || (currentHour === 7 && currentMinute <= 30)) {\n    shiftStart = '00:00'\n    shiftEnd = '07:30'\n} else if ((currentHour === 8 && currentMinute >= 0) || (currentHour < 15) || (currentHour === 15 && currentMinute <= 30)) {\n    shiftStart = '08:00'\n    shiftEnd = '15:30'\n} else {\n    shiftStart = '16:00'\n    shiftEnd = '23:30'\n}\n\nmsg.payload = {\n    data: {\n        'shift-start': shiftStart,\n        'shift-end': shiftEnd\n    }\n}\n\nreturn msg",
+                "outputs": 1,
+                "timeout": 0,
+                "noerr": 0,
+                "initialize": "",
+                "finalize": "",
+                "libs": [],
+                "x": 230,
+                "y": 300,
+                "wires": [
+                    [
+                        "b9d13477ac2df90d"
+                    ]
+                ]
             }
         ],
         "credentials": {
-            "$": "4b8262b11a82896c6ac066ef37443786+qc="
+            "$": "4028371a70075927669d7f8f493ca86dyGY="
         }
     },
     "settings": {
@@ -681,6 +659,7 @@
                     "@flowfuse/nr-mqtt-nodes": ">=0.1.0",
                     "@flowfuse/nr-project-nodes": "~0.7.5",
                     "@flowfuse/nr-tables-nodes": ">=0.1.0",
+                    "moment": "^2.30.1",
                     "node-red-contrib-cip-ethernet-ip": "~1.1.3",
                     "node-red-contrib-ip": "~1.0.1",
                     "node-red-node-random": "~0.4.1"
@@ -693,6 +672,7 @@
             "@flowfuse/nr-mqtt-nodes": ">=0.1.0",
             "@flowfuse/nr-project-nodes": "~0.7.5",
             "@flowfuse/nr-tables-nodes": ">=0.1.0",
+            "moment": "^2.30.1",
             "node-red": "latest",
             "node-red-contrib-cip-ethernet-ip": "~1.1.3",
             "node-red-contrib-ip": "~1.0.1",

@@ -1,9 +1,9 @@
 {
-    "id": "YJZ74pWD3k",
-    "name": "1.67",
-    "description": "Overview \nUpdated greeting text and repositioned two nodes horizontally.\n\nFlows\nChanged the payload of one node from \"Hello Dan\" to \"Hello Thursday\". Adjusted the x-coordinates of two nodes, moving one from 340 to 360 and another from 580 to 540. No other changes detected in the flows.",
-    "createdAt": "2026-04-09T15:35:29.405Z",
-    "updatedAt": "2026-04-09T15:35:29.405Z",
+    "id": "OjzmP89N3a",
+    "name": "1.68",
+    "description": "Overview \nIntroduced comprehensive production line simulation and monitoring nodes, including shift timing, operational mode simulation, gradual cycle time adjustment, and recipe cycling. Added MQTT config and project link nodes for integration and communication. Enhanced device info parsing and structured payload organization.\n\nFlows\nAdded a new MQTT configuration node (ff-mqtt-conf) with default empty birth, close, and will topics and messages.\nAdded a 'project link out' node named 'project out 1' for broadcasting with a specific project ID and topic 'send'.\nAdded a change node to set msg.payload.device and msg.payload.snapshot from environment variables FF_DEVICE_NAME and FF_SNAPSHOT_NAME respectively.\nRefined the function node 'function 1' to split device string into an array assigned to msg.payload.device.\nEnhanced the change node following 'function 1' to reorganize device info into structured properties (env, location, ipc) and move snapshot to device.version; also initializes shift-start to 0.\nAdded complex logic nodes for shift timing and production simulation including:\n- 'Set Shift Start Time' function to set shift start times and simulate production targets and expected outcomes.\n- 'Gradual Cycle Time Setter' function to gradually change cycle time between 30 and 45.\n- 'Timed Position Selector' function to cycle through predefined positions every 2 minutes, outputting as recipe.\n- 'Set Next Shift End' function to determine upcoming shift end times.\n- 'Generate Op Mode' function to simulate operational mode changes (RUNNING/STOPPED) with failure and recovery probabilities.\n- 'Generate Progress' function to calculate and output production progress based on shift times and simulated targets.\nAdded supporting inject and link nodes to trigger and connect these new functions.\nAdded a disabled debug node named 'debug 1' for monitoring payloads.\nAdded a debug node named 'debug 2' active and connected to a test inject node sending a string payload.\nOverall, the update introduces a detailed simulation of production line operation including temperature, cycle time, operational mode, and shift management, improving the flow's dynamic behavior and monitoring capabilities.",
+    "createdAt": "2026-04-16T15:50:10.208Z",
+    "updatedAt": "2026-04-16T15:50:10.208Z",
     "flows": {
         "flows": [
             {
@@ -81,6 +81,25 @@
                 "y": 79,
                 "w": 372,
                 "h": 82
+            },
+            {
+                "id": "96629017b0db899b",
+                "type": "ff-mqtt-conf",
+                "birthTopic": "",
+                "birthQos": "0",
+                "birthRetain": "false",
+                "birthPayload": "",
+                "birthMsg": {},
+                "closeTopic": "",
+                "closeQos": "0",
+                "closeRetain": "false",
+                "closePayload": "",
+                "closeMsg": {},
+                "willTopic": "",
+                "willQos": "0",
+                "willRetain": "false",
+                "willPayload": "",
+                "willMsg": {}
             },
             {
                 "id": "45377e20ce9b7343",
@@ -642,9 +661,9 @@
                 "once": false,
                 "onceDelay": 0.1,
                 "topic": "",
-                "payload": "Hello Thursday",
+                "payload": "Hello Guys",
                 "payloadType": "str",
-                "x": 360,
+                "x": 340,
                 "y": 580,
                 "wires": [
                     [
@@ -665,12 +684,12 @@
                 "statusVal": "",
                 "statusType": "auto",
                 "x": 540,
-                "y": 580,
+                "y": 600,
                 "wires": []
             }
         ],
         "credentials": {
-            "$": "2f2f17d6c1509efa3a6d0330e5e0b7dcty0="
+            "$": "ce894a3def62b1b19cb25f6ea56a625bf7Q="
         }
     },
     "settings": {
@@ -701,12 +720,12 @@
     },
     "ownerType": "device",
     "user": {
-        "id": "6nkvARPgRx",
-        "username": "robmarcer-flowforge",
-        "name": "Rob Marcer",
-        "avatar": "https://app.flowfuse.com/avatar/Um9iIE1hcmNlcg",
-        "admin": true,
-        "createdAt": "2022-09-12T08:25:14.762Z",
+        "id": "PVGEb62me8",
+        "username": "dgatti0213",
+        "name": "Drew Gatti",
+        "avatar": "https://app.flowfuse.com/avatar/RHJldyBHYXR0aQ",
+        "admin": false,
+        "createdAt": "2025-10-27T18:07:40.333Z",
         "suspended": false,
         "SSOGroups": []
     }
